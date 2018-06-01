@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+#container {
+	width: 80%;
+	margin: 50px auto 0 auto;
+	position:relative;
+}
+
+#header {
+	height: 50px;
+}
+
+#header h1 {
+	text-align: center;
+}
+
+#content {
+	height: 500px;
+}
+
+#leftSide {
+	float:left;
+	width: 35%;
+}
+
+#leftSide img {
+	width: 90%;
+	margin: 0 auto 0 auto;
+}
+
+#rightSide {
+	width: 65%;
+	float:right;
+}
+
+#footer {
+	width: 100%;
+	height: 40px;
+}
+
+#footer p {
+	text-align: center;
+	color: ;
+	font-weight: bold;
+}
+
+.loginTable {
+	width:80%;
+	margin: 0 auto 0 auto;
+	float:right;
+}
