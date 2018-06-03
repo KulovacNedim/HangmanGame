@@ -60,7 +60,8 @@ public class NewGameServlet extends HttpServlet {
 			System.out.println("nisam uhvatio rijec");
 			e.printStackTrace();
 		}
-		Game game = new Game();
+		Game game = (Game)req.getSession().getAttribute("game");
+//		Game game = new Game();
 		game.setUser(user);
 		game.setScore(100);
 		game.setWord(word);
@@ -74,7 +75,12 @@ public class NewGameServlet extends HttpServlet {
 		game.setSolutionPlaceholder(solutionPlaceholder);
 		
 		game.setUsedLetters("");
-		game.setImagePath("images/1.png");
+		try {
+			game.setImagePath(imageDAO.getImagePath(game.getMisses()));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		req.getSession().setAttribute("game", game);
 //		req.getSession().setAttribute("categoryString", categoryString);

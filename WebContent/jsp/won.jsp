@@ -36,6 +36,7 @@
 			<br/>
 			<br/>
 			<a href="newGame"><input type="button" value="PLAY NEW GAME"></a>
+			<a href="welcome"><input type="button" value="WELCOME SCREEN"></a>
 			<a href="logout"><input type="button" value="LOG OUT"></a>
 		</section>
 		

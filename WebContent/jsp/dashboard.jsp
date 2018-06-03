@@ -16,7 +16,8 @@
 <body>
 
 	<% Game game = (Game) session.getAttribute("game");%>
-
+<%-- 	<% session.setAttribute("game", game);%> --%>
+<!-- 	test za sada ne radi -->
 	
 	<section id="container">
 	
@@ -48,7 +49,7 @@
 			%>
 			
 			<tr>
-			<td><%=points.getUserID()%></td><td><%=points.getPoints()%></td>
+			<td><%=points.getName()%></td><td><%=points.getPoints()%></td>
 			</tr>
 			<%
 				}
@@ -56,6 +57,9 @@
 			
 			
 			</table>
+			
+			
+			<a href="welcome"><input type="button" value="WELCOME SCREEN"></a>
 		
 		</section>
 		
@@ -63,7 +67,7 @@
 	
 	<!-- FOOTER -->
 	<section id="footer">
-		fd
+		
 	</section>
 </section>
 

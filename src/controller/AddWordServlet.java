@@ -36,8 +36,15 @@ public class AddWordServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
-		
+		WordCategoryDAOImplementation wordDAO = new WordCategoryDAOImplementation();
+		ArrayList<Category> categories = new ArrayList<>();
+		try {
+			categories = wordDAO.getWordCategories();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		request.getSession().setAttribute("categories", categories);
 		RequestDispatcher forward = request.getRequestDispatcher("jsp/addWord.jsp");
 		forward.forward(request, response);
 	}

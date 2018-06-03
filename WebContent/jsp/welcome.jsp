@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@page import="model.User"%>
+<%@page import="model.Game"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -11,6 +12,8 @@
 <body>
 
 	<% User user = (User) session.getAttribute("user");%>
+	<% Game game = (Game) session.getAttribute("game");%>
+	
 <%-- 	<% session.setAttribute("user", user);%> --%>
 
 <section id="container">
@@ -25,7 +28,7 @@
 		
 	<!-- LEFT SIDE -->
 		<section id="leftSide">
-			<img src="images/7.png">
+		<img src="<%=game.getImagePath()%>">
 		</section>
 		
 	<!-- RIGHT SIDE -->

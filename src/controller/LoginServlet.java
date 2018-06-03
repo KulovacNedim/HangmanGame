@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import DAO.ImageDAOImplementation;
 import DAO.UserDAOImplementation;
+import model.Game;
 import model.User;
 import validation.HashValidation;
 //import validation.LoginValidation;
@@ -28,6 +30,7 @@ public class LoginServlet extends HttpServlet{
 		LoginValidation loginValidation = new LoginValidation();
 		HashValidation hashValidation = new HashValidation();
 		UserDAOImplementation userDAO = new UserDAOImplementation();
+		ImageDAOImplementation imageDAO = new ImageDAOImplementation();
 		
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
@@ -43,6 +46,12 @@ public class LoginServlet extends HttpServlet{
 				
 				
 				session.setAttribute("user", user);
+				Game game = new Game();
+				game.setMisses(7);
+				game.setImagePath(imageDAO.getImagePath(game.getMisses()));
+				System.out.println("test : " +game.getImagePath());
+				session.setAttribute("game", game);
+				
 //				session.setAttribute("allContacts", allContacts);
 //				session.setAttribute("searchCriteria", "firstName");
 //				req.getSession().setAttribute("checked", "checked");

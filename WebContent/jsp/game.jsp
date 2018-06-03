@@ -40,7 +40,7 @@
 			<p>USED LETTERS: ${game.usedLetters}</p>
 			
 			<form action="game" method="post">
-		<label>Unesi slovo ili cijelu rijec</label> 
+		<label>Enter letter or whole word </label> 
 		<input type="text" name="letter" id="letter"><br /> 
 
 		
@@ -53,7 +53,7 @@
 	
 	<!-- FOOTER -->
 	<section id="footer">
-		<p>word: ${game.word.word}</p>
+		<p>word: ${game.word.word} (for demonstration purpouse only - delete when app is complited)</p>
 		<% if (request.getAttribute("emptyInputErrorMessage") != null) { %>
 	<p><%=request.getAttribute("emptyInputErrorMessage")%></p><br />
 	<% } %>

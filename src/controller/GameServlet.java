@@ -53,14 +53,14 @@ public class GameServlet extends HttpServlet {
 			else if (letter.length() > 1 && !game.getWord().getWord().equals(letter)) {
 				//izgubio
 				//snimi general score
-				try {
-					pointsDAO.saveScore(game.getUser().getUserID(), Game.getGeneralScore());
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
-				Game.setGeneralScore(0);
+//				try {
+//					pointsDAO.saveScore(game.getUser().getUserID(), Game.getGeneralScore());
+//				} catch (SQLException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//				
+//				Game.setGeneralScore(0);
 				
 				//preusmjeri
 				
@@ -73,7 +73,7 @@ public class GameServlet extends HttpServlet {
 			else if (game.getCorrect() == game.getWord().getWord().length() - 1) {
 				// pobjeda
 				// snimi rezultat - tj pohrani
-				Game.setGeneralScore(Game.getGeneralScore() + game.getScore());
+//				Game.setGeneralScore(Game.getGeneralScore() + game.getScore());
 
 				// preusmjeri
 				req.getSession().setAttribute("game", game);
@@ -86,14 +86,15 @@ public class GameServlet extends HttpServlet {
 			else if (game.getMisses() == 6) {
 				//izgubio
 				//snimi general score
-				try {
-					pointsDAO.saveScore(game.getUser().getUserID(), Game.getGeneralScore());
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+//				try {
+//					pointsDAO.saveScore(game.getUser().getUserID(), Game.getGeneralScore());
+//					Game.setGeneralScore(0);
+//				} catch (SQLException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
 				
-				Game.setGeneralScore(0);
+//				Game.setGeneralScore(0);
 				
 				//preusmjeri
 				
