@@ -32,7 +32,7 @@
 		
 		<h1>USER REGISTER</h1>
 		
-		<form action="register" method="post">
+		<form action="register" method="post" class="form">
 			 
 			    <label>Enter username: </label> 
 			    <input type="text" name="username" id="username" value="<%= request.getAttribute("username") == null ? "" : request.getAttribute("username")%>">

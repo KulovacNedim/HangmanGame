@@ -30,7 +30,7 @@
 	<!-- RIGHT SIDE -->
 		<section id="rightSide">
 		
-			<form action="login" method="post">
+			<form action="login" method="post" class="form">
 			
 			 
 			    <h1>LOGIN</h1>
@@ -38,7 +38,7 @@
 			  
 			    <label>Enter username: </label> 
 			   <input type="text" name="username"
-			id="username"> <br />
+			id="username" autofocus> <br />
 			  
 			    <label>Enter password: </label>
 			    <input

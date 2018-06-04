@@ -21,6 +21,7 @@
 	<!-- HEADER -->
 	<section id="header">
 		<%@ include file="header.jsp"%>
+		<br class="clear"/>
 	</section>
 	
 	<!-- CONTENT -->
@@ -30,16 +31,14 @@
 		<section id="leftSide">
 <!-- 			<img src="images/7.png"> -->
 <img src="<%=game.getImagePath()%>">
+<br class="clear"/>
 		</section>
 		
 	<!-- RIGHT SIDE -->
 		<section id="rightSide">
 				<h1>Choose one of categories:</h1>
-				
-				
-		
 
-	<form action="newGame" method=get>
+	<form action="newGame" method=get class="optionList">
 <section class="scrollWindow">
 		<%
 			ArrayList<Category> categories = (ArrayList) session.getAttribute("categories");
@@ -47,19 +46,20 @@
 			while (iterator.hasNext()) {
 				Category category = iterator.next();
 		%>
-		<input class="optionList" type="radio" name="categoryString" id="searchCriteria"
+		<input  type="radio" name="categoryString" id="searchCriteria"
 			value="<%=category.getCategoryName()%>"><%=category.getCategoryName()%><br />
 
 		<%
 			}
 		%>
+		<br class="clear"/>
 		</section>
-<input type="submit" class="button1" value="PLAY">
+	<input type="submit" class="button1" value="PLAY">
 
 	</form>
-	
+	<br class="clear"/>
 		</section>
-		
+		<br class="clear"/>
 	</section>
 	
 	<!-- FOOTER -->

@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Varela+Round" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <title>Insert title here</title>
 </head>
@@ -13,6 +14,7 @@
 	<!-- HEADER -->
 	<section id="header">
 		<%@ include file="header.jsp"%>
+		<br class="clear"/>
 	</section>
 	
 	<!-- CONTENT -->
@@ -22,20 +24,22 @@
 		<section id="leftSide">
 <!-- 			<img src="images/7.png"> -->
 <%@ include file="adminButtons.jsp"%>
+<br class="clear"/>
 		</section>
 		
 	<!-- RIGHT SIDE -->
 		<section id="rightSide">
 		<h3>ADD WORD CATEGORY SECTION</h3>
-				<form action="addCategory" method="post">
+		<br />
+				<form action="addCategory" method="post" class="form">
 		<label>Category</label> 
 		<input type="text" name="categoryname" id="categoryname" value=""><br /> 
 	 
-		<input type="submit" value="Save category">
+		<input class="button" type="submit" value="Save category" >
 	</form>
-
+<br class="clear"/>
 		</section>
-		
+		<br class="clear"/>
 	</section>
 	
 	<!-- FOOTER -->
@@ -43,7 +47,7 @@
 		<%
 		if (request.getAttribute("categRegSuccess") != null) {
 	%>
-	<%=request.getAttribute("categRegSuccess")%><br />
+	<p><%=request.getAttribute("categRegSuccess")%></p><br />
 	<%
 		}
 	%>

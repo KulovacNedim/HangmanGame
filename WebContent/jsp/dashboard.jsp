@@ -10,6 +10,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Varela+Round" rel="stylesheet"> 
 <link rel="stylesheet" href="css/style.css">
 <title>Insert title here</title>
 </head>
@@ -22,6 +23,7 @@
 	<!-- HEADER -->
 	<section id="header">
 		<%@ include file="header.jsp"%>
+		<br class="clear"/>
 	</section>
 	
 	<!-- CONTENT -->
@@ -31,15 +33,21 @@
 		<section id="leftSide">
 <!-- 			<img src="images/7.png"> -->
 <img src="<%=game.getImagePath()%>">
+<br class="clear"/>
 		</section>
 		
 	<!-- RIGHT SIDE -->
 		<section id="rightSide">
 			
-			<table>
+			<h1>TOP 10 SCORES:</h1>
+			
+			<section class="scrollWindow">
+			
+			<table class="table">
 			<tr>
-			<td>User</td><td>Points</td>
+			<td>USER</td><td>SCORE</td>
 			</tr>
+
 			<%
 				ArrayList<Points> arrPoints = (ArrayList) session.getAttribute("arrPoints");
 				Iterator<Points> iterator = arrPoints.iterator();
@@ -56,12 +64,12 @@
 			
 			
 			</table>
+			</section>
 			
-			
-			<a href="welcome"><input type="button" value="WELCOME SCREEN"></a>
-		
+			<a href="welcome"><input class="button1" type="button" value="WELCOME SCREEN"></a>
+		<br class="clear"/>
 		</section>
-		
+		<br class="clear"/>
 	</section>
 	
 	<!-- FOOTER -->

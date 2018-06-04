@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Varela+Round" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <title>Insert title here</title>
 </head>
@@ -17,6 +18,7 @@
 	<!-- HEADER -->
 	<section id="header">
 		<%@ include file="header.jsp"%>
+		<br class="clear"/>
 	</section>
 	
 	<!-- CONTENT -->
@@ -25,35 +27,42 @@
 	<!-- LEFT SIDE -->
 		<section id="leftSide">
 			<img src="<%=game.getImagePath()%>">
+			<br class="clear"/>
 		</section>
 		
 	<!-- RIGHT SIDE -->
 		<section id="rightSide">
 			
-			<p>You are logged as: ${game.user.username}</p>
-			<p>Your current score: ${game.score}</p>
+			<div class="alignRight">
+			<p>Player: ${game.user.username}</p>
+			<p>Game score: ${game.score}</p>
+			</div>
+			<div class="alignLeft">
 			<p>Word category: ${game.category.categoryName}</p>
-			<p>Misses: ${game.misses}</p>
-			<br/>
-			<p>WORD: ${game.solutionPlaceholder}</p>
-			<br/>
-			<p>USED LETTERS: ${game.usedLetters}</p>
+			<p class="smallFont">MISSES: ${game.misses}</p>
+			<p class="smallFont">USED LETTERS: ${game.usedLetters}</p>
+			</div>
 			
-			<form action="game" method="post">
-		<label>Enter letter or whole word </label> 
-		<input type="text" name="letter" id="letter"><br /> 
-
+			<p class="word">${game.solutionPlaceholder}</p>
+			
+			
+			<form action="game" method="post" class="form">
+				<label>Enter letter or whole word:  </label> 
+				<input type="text" name="letter" id="letter" autocomplete="off" autofocus><br /> 
 		
-		<input type="submit" value="ENTER">
-	</form>
+				<input class="button" type="submit" value="ENTER">
+			</form>
 			
+			
+			
+			<br class="clear"/>
 		</section>
-		
+		<br class="clear"/>
 	</section>
 	
 	<!-- FOOTER -->
 	<section id="footer">
-		<p>word: ${game.word.word} (for demonstration purpouse only - delete when app is complited)</p>
+		
 		<% if (request.getAttribute("emptyInputErrorMessage") != null) { %>
 	<p><%=request.getAttribute("emptyInputErrorMessage")%></p><br />
 	<% } %>
@@ -64,5 +73,8 @@
 	</section>
 </section>
 	
+	<div id="demo">
+		<p>word: ${game.word.word} (for demonstration purpose only - delete when app is complited)</p>
+	</div>
 </body>
 </html>

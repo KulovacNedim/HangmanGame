@@ -63,6 +63,17 @@
 	
 }
 
+#rightSide h3 {
+	text-align: center;
+	letter-spacing: 5px;
+	color: #FF9800;
+	font-size: 24px;
+	font-family: 'Varela Round', sans-serif;
+	padding-top:7px;
+	margin: 7px 0px 0px 0px;
+	
+}
+
 #rightSide form label {
 	text-align: center;
 	font-family: 'Varela Round', sans-serif;
@@ -71,7 +82,8 @@
 	text-align: center;
 }
 
-#rightSide form input {
+/* #rightSide form  */
+.form input {
 	width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -82,7 +94,18 @@
     font-size: 20px;
 }
 
-#rightSide form a {
+.form select {
+	width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #FF9800;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-size: 20px;
+}
+
+#rightSide a {
 	text-decoration: none;
 	}
 	
@@ -95,7 +118,7 @@
 
 
 .button1 {
-	width: 100%;
+	width: 95%;
 	margin: 10px auto 0 auto;
 	background: #ffb700;
     background-image: -webkit-linear-gradient(top, #ffb700, #FF9800);
@@ -170,10 +193,68 @@
 }
 
 .scrollWindow {
-	height: 270px;
+	padding-top:20px;
+	height: 240px;
 	overflow: auto;
 }
 
-.optionList input {
-	color:red;
+.optionList {
+	font-family: 'Ubuntu Condensed', sans-serif;
+	font-size: 25px;
+	margin-botom:20px;
+	color: #FF9800;
 }
+
+.optionList input{ 
+	padding-top: 20px;
+	}
+
+.alignRight {
+	float: right;
+	 }
+	 
+.alignLeft {
+	float: left;
+	 }
+
+#rightSide p {
+	font-family: 'Ubuntu Condensed', sans-serif;
+	font-size: 25px;
+	color: #FF9800;
+}
+
+.word {
+	padding-top: 120px;
+	text-align: center;
+	font-size: 40px !important;
+	font-family: 'Ubuntu Condensed', sans-serif;
+	letter-spacing: 10px !important;
+	color: #F44336 !important;
+	margin-bottom: 20px;
+}
+
+.smallFont {
+	font-size: 17px !important;
+}
+
+#demo {
+	position:fixed;
+	bottom: 0px;
+	left: 0px;
+}
+
+.table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: 'Ubuntu Condensed', sans-serif;
+/*     position:relative; */
+/*     top: -300px; */
+}
+
+.table th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+.table tr:nth-child(odd) {background-color: #FFFFFF;}
+.table tr:nth-child(even) {background-color: #F1F1F1;}

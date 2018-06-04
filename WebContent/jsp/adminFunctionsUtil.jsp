@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Varela+Round" rel="stylesheet"> 
 <link rel="stylesheet" href="css/style.css">
 <title>Insert title here</title>
 </head>
@@ -15,6 +16,7 @@
 	<!-- HEADER -->
 	<section id="header">
 		<%@ include file="header.jsp"%>
+		<br class="clear"/>
 	</section>
 	
 	<!-- CONTENT -->
@@ -24,23 +26,16 @@
 		<section id="leftSide">
 <!-- 			<img src="images/7.png"> -->
 <%@ include file="adminButtons.jsp"%>
+<br class="clear"/>
 		</section>
 		
 	<!-- RIGHT SIDE -->
 		<section id="rightSide">
 			
-<!-- 			<a href="addUser" class="btn btn-info" role="button">Add user</a> -->
-<!-- 			<a href="deleteUser" class="btn btn-info" role="button">Delete user</a> -->
-			
-<!-- 			<a href="addCategory" class="btn btn-info" role="button">Add word categories</a> -->
-<!-- 			<a href="addWord" class="btn btn-info" role="button">Add words</a> -->
-			
-<!-- 			<a href="addUser"><input type="button" value="ADD USER"></a><br /><br /> -->
-<!-- 			<a href="deleteUser"><input type="button" value="DELETE USER"></a><br /><br /> -->
-<!-- 			<a href="addCategory"><input type="button" value="ADD WORD CATEGORIES"></a><br /><br /> -->
-<!-- 			<a href="addWord"><input type="button" value="ADD WORDS"></a><br /><br /> -->
+
+<br class="clear"/>
 		</section>
-		
+		<br class="clear"/>
 	</section>
 	
 	<!-- FOOTER -->

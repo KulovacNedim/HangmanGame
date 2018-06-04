@@ -46,6 +46,13 @@ public class GameServlet extends HttpServlet {
 //				game.setScore(100);
 				Game.setGeneralScore(Game.getGeneralScore() + game.getScore());
 
+				game.setMisses(7);
+				try {
+					game.setImagePath(imageDAO.getImagePath(game.getMisses()));
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				// preusmjeri
 				req.getSession().setAttribute("game", game);
 
@@ -63,7 +70,13 @@ public class GameServlet extends HttpServlet {
 //				}
 //				
 //				Game.setGeneralScore(0);
-				
+				game.setMisses(6);
+				try {
+					game.setImagePath(imageDAO.getImagePath(game.getMisses()));
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				//preusmjeri
 				
 				req.getSession().setAttribute("game", game);
