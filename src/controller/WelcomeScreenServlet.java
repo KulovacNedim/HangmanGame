@@ -34,15 +34,17 @@ public class WelcomeScreenServlet extends HttpServlet {
 			if (game.getGeneralScore() != 0) {
 				pointsDAO.saveScore(game.getUser().getUserID(), Game.getGeneralScore());
 				Game.setGeneralScore(0);
+				
 			}
-			
+			game.setMisses(7);//ovo dvoje staviti i na ostala mjesta ili sve u jednu metodu
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		
-		
+		request.getSession().setAttribute("game", game);
+
 		RequestDispatcher success = request.getRequestDispatcher("jsp/welcome.jsp");
 		success.forward(request, response);
 	}

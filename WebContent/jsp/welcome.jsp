@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="css/style.css">
 <title>Insert title here</title>
 </head>
-<body>
+<body class="lightGrey">
 
 	<% User user = (User) session.getAttribute("user");%>
 	<% Game game = (Game) session.getAttribute("game");%>
@@ -21,6 +21,7 @@
 	<!-- HEADER -->
 	<section id="header">
 		<%@ include file="header.jsp"%>
+		<br class="clear"/>
 	</section>
 	
 	<!-- CONTENT -->
@@ -29,22 +30,27 @@
 	<!-- LEFT SIDE -->
 		<section id="leftSide">
 		<img src="<%=game.getImagePath()%>">
+		<br class="clear"/>
 		</section>
 		
 	<!-- RIGHT SIDE -->
 		<section id="rightSide">
 			
 			<h1>WELCOME TO MAIN MENU</h1>
-			
-			<a href="categoryOptionsServlet" class="btn btn-info" role="button">PLAY NEW GAME</a><br />
-			<a href="dashboard" class="btn btn-info" role="button">DASHBOARD</a><br />
+			<br /><br /><br /><br /><br />
+<!-- 			<a href="categoryOptionsServlet" class="button" role="button">PLAY NEW GAME</a><br /><br /><br /> -->
+			<a href="categoryOptionsServlet"><input class="button1" type="button" value="PLAY NEW GAME">
+<!-- 			<a href="dashboard" class="button" role="button">DASHBOARD</a><br /><br /><br /> -->
+			<a href="dashboard"><input class="button1" type="button" value="DASHBOARD">
 			<% if (user.isAdmin()) { %>
 			<%@ include file="adminFunctions.jsp"%>
 			<% } %>
-			<a href='logout'>LOGOUT</a>
-			
-		</section>
+<!-- 			<a href='logout'class="button" >LOGOUT</a> -->
+			<a href="logout"><input class="button1" type="button" value="LOGOUT">
 		
+			<br class="clear"/>
+		</section>
+		<br class="clear"/>
 	</section>
 	
 	<!-- FOOTER -->

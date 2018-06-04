@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="css/style.css">
 <title>Insert title here</title>
 </head>
-<body>
+<body class="lightGrey">
 <section id="container">
 	
 	<!-- HEADER -->
@@ -23,11 +23,14 @@
 		
 	<!-- LEFT SIDE -->
 		<section id="leftSide">
-			<img src="images/7.png">
+<!-- 			<img src="images/7.png"> -->
+<%@ include file="adminButtons.jsp"%>
 		</section>
 		
 	<!-- RIGHT SIDE -->
 		<section id="rightSide">
+		
+		<h3>ADD WORD SECTION</h3>
 			
 	<form action="addWord" method="post">
 		<label>Word</label> <input type="text" name="word" id="word" value=""><br />

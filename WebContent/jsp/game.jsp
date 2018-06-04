@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="css/style.css">
 <title>Insert title here</title>
 </head>
-<body>
+<body class="lightGrey">
 <% Game game = (Game) session.getAttribute("game");%>
 <section id="container">
 	

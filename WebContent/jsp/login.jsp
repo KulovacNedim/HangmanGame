@@ -4,17 +4,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Varela+Round" rel="stylesheet"> 
 <link rel="stylesheet" href="css/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hangman - Login</title>
 </head>
-<body>
+<body class="lightGrey">
 
 <section id="container">
 	
 	<!-- HEADER -->
 	<section id="header">
 		<%@ include file="header.jsp"%>
+		<br class="clear"/>
 	</section>
 	
 	<!-- CONTENT -->
@@ -22,39 +24,61 @@
 		
 	<!-- LEFT SIDE -->
 		<section id="leftSide">
-			<img src="images/7.png">
+			<img src="images/6.png">
 		</section>
 		
 	<!-- RIGHT SIDE -->
 		<section id="rightSide">
-			
-			<form action="login" method="post">
-			<table class="loginTable">
-			  <tr>
-			    <td colspan="2"><h1>LOGIN</h1><br /><br /></td>
-			  </tr>
-			  <tr>
-			    <td><label>Enter username: </label> </td>
-			    <td><input type="text" name="username"
-			id="username"> <br /></td>
-			  </tr>
-			  <tr>
-			    <td><label>Enter password: </label></td>
-			    <td><input
-			type="password" name="password" id="password"><br /> <br /></td>
-			  </tr>
-			  <tr>
-			    <td colspan="2"><input
-			type="submit" value="Login"><br /> <br /><br /> <br /></td>
-			  </tr>
-			  <tr>
-			    <td colspan="2"><a href="register"><input type="button" value="Register"></a></td>
-			  </tr>
-			</table>
-		</form>
-
-		</section>
 		
+			<form action="login" method="post">
+			
+			 
+			    <h1>LOGIN</h1>
+			 
+			  
+			    <label>Enter username: </label> 
+			   <input type="text" name="username"
+			id="username"> <br />
+			  
+			    <label>Enter password: </label>
+			    <input
+			type="password" name="password" id="password"><br /> <br />
+			  
+			    <input class="button"
+			type="submit" value="Login">
+			 
+			    <a href="register"><input class="button" type="button" value="Register"></a>
+			  
+			
+		</form>
+			
+<!-- 			<form action="login" method="post"> -->
+<!-- 			<table class="loginTable"> -->
+<!-- 			  <tr> -->
+<!-- 			    <td colspan="2"><h1>LOGIN</h1><br /><br /></td> -->
+<!-- 			  </tr> -->
+<!-- 			  <tr> -->
+<!-- 			    <td><label>Enter username: </label> </td> -->
+<!-- 			    <td><input type="text" name="username" -->
+<!-- 			id="username"> <br /></td> -->
+<!-- 			  </tr> -->
+<!-- 			  <tr> -->
+<!-- 			    <td><label>Enter password: </label></td> -->
+<!-- 			    <td><input -->
+<!-- 			type="password" name="password" id="password"><br /> <br /></td> -->
+<!-- 			  </tr> -->
+<!-- 			  <tr> -->
+<!-- 			    <td colspan="2"><input -->
+<!-- 			type="submit" value="Login"><br /> <br /><br /> <br /></td> -->
+<!-- 			  </tr> -->
+<!-- 			  <tr> -->
+<!-- 			    <td colspan="2"><a href="register"><input type="button" value="Register"></a></td> -->
+<!-- 			  </tr> -->
+<!-- 			</table> -->
+<!-- 		</form> -->
+			<br class="clear"/>
+		</section>
+		<br class="clear"/>
 	</section>
 	
 	<!-- FOOTER -->

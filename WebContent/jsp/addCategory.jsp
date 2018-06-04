@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="css/style.css">
 <title>Insert title here</title>
 </head>
-<body>
+<body class="lightGrey">
 <section id="container">
 	
 	<!-- HEADER -->
@@ -20,11 +20,13 @@
 		
 	<!-- LEFT SIDE -->
 		<section id="leftSide">
-			<img src="images/7.png">
+<!-- 			<img src="images/7.png"> -->
+<%@ include file="adminButtons.jsp"%>
 		</section>
 		
 	<!-- RIGHT SIDE -->
 		<section id="rightSide">
+		<h3>ADD WORD CATEGORY SECTION</h3>
 				<form action="addCategory" method="post">
 		<label>Category</label> 
 		<input type="text" name="categoryname" id="categoryname" value=""><br /> 

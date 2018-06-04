@@ -27,6 +27,7 @@ public class LogoutServlet extends HttpServlet {
 			try {
 				pointsDAO.saveScore(game.getUser().getUserID(), Game.getGeneralScore());
 				Game.setGeneralScore(0);
+				game.setMisses(7);//ovo dvoje staviti i na ostala mjesta ili sve u jednu metodu
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

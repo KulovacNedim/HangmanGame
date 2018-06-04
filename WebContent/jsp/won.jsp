@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="css/style.css">
 <title>Insert title here</title>
 </head>
-<body>
+<body class="lightGrey">
 
 	<% Game game = (Game) session.getAttribute("game");%>
 
@@ -26,7 +26,8 @@
 		
 	<!-- LEFT SIDE -->
 		<section id="leftSide">
-			<img src="images/7.png">
+<!-- 			<img src="images/7.png"> -->
+<img src="<%=game.getImagePath()%>">
 		</section>
 		
 	<!-- RIGHT SIDE -->

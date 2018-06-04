@@ -4,14 +4,17 @@
 <%@page import="model.Category"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="model.Game"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Varela+Round" rel="stylesheet"> 
 <link rel="stylesheet" href="css/style.css">
 <title>Insert title here</title>
 </head>
-<body>
+<body class="lightGrey">
 
+<% Game game = (Game) session.getAttribute("game");%>
 
 <section id="container">
 	
@@ -25,30 +28,36 @@
 		
 	<!-- LEFT SIDE -->
 		<section id="leftSide">
-			<img src="images/7.png">
+<!-- 			<img src="images/7.png"> -->
+<img src="<%=game.getImagePath()%>">
 		</section>
 		
 	<!-- RIGHT SIDE -->
 		<section id="rightSide">
 				<h1>Choose one of categories:</h1>
+				
+				
+		
 
 	<form action="newGame" method=get>
-
+<section class="scrollWindow">
 		<%
 			ArrayList<Category> categories = (ArrayList) session.getAttribute("categories");
 			Iterator<Category> iterator = categories.iterator();
 			while (iterator.hasNext()) {
 				Category category = iterator.next();
 		%>
-		<input type="radio" name="categoryString" id="searchCriteria"
+		<input class="optionList" type="radio" name="categoryString" id="searchCriteria"
 			value="<%=category.getCategoryName()%>"><%=category.getCategoryName()%><br />
 
 		<%
 			}
 		%>
-<input type="submit" value="PLAY">
+		</section>
+<input type="submit" class="button1" value="PLAY">
 
 	</form>
+	
 		</section>
 		
 	</section>

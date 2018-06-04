@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import DAO.ImageDAOImplementation;
 import DAO.PointsDAOImplementation;
 import DAO.WordCategoryDAOImplementation;
 import DAO.WordDAOImplementation;
@@ -26,6 +27,7 @@ public class GameServlet extends HttpServlet {
 		WordCategoryDAOImplementation wordCategoryDAO = new WordCategoryDAOImplementation();
 		GameLogic gameLogic = new GameLogic();
 		PointsDAOImplementation pointsDAO = new PointsDAOImplementation();
+		ImageDAOImplementation imageDAO = new ImageDAOImplementation();
 
 		Game game = (Game) req.getSession().getAttribute("game");
 		String letter = req.getParameter("letter");
@@ -73,8 +75,15 @@ public class GameServlet extends HttpServlet {
 			else if (game.getCorrect() == game.getWord().getWord().length() - 1) {
 				// pobjeda
 				// snimi rezultat - tj pohrani
-//				Game.setGeneralScore(Game.getGeneralScore() + game.getScore());
+				Game.setGeneralScore(Game.getGeneralScore() + game.getScore());
 
+				game.setMisses(7);
+				try {
+					game.setImagePath(imageDAO.getImagePath(game.getMisses()));
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				// preusmjeri
 				req.getSession().setAttribute("game", game);
 
@@ -83,7 +92,7 @@ public class GameServlet extends HttpServlet {
 				
 
 			} 
-			else if (game.getMisses() == 6) {
+			else if (game.getMisses() == 5) {
 				//izgubio
 				//snimi general score
 //				try {
@@ -95,6 +104,13 @@ public class GameServlet extends HttpServlet {
 //				}
 				
 //				Game.setGeneralScore(0);
+				game.setMisses(6);
+				try {
+					game.setImagePath(imageDAO.getImagePath(game.getMisses()));
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				
 				//preusmjeri
 				

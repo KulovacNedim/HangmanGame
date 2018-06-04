@@ -39,7 +39,7 @@ public class GameLogic {
 				game.setSolutionPlaceholder(nova);
 
 				game.setUsedLetters(game.getUsedLetters() + " " + letter);
-				game.setCorrect(game.getCorrect() + 1);
+				game.setCorrect(game.getCorrect() + correctLetters(newPlaceholder, game.getWord(), letter));
 
 				System.out.println(game.toString());
 
@@ -134,6 +134,26 @@ public class GameLogic {
 		}
 
 		return false;
+	}
+	
+	private int correctLetters(String newPlaceholder, Word word, String letter) {
+
+		int counter = 0;
+
+		// str.replace('o', 'p')
+		// StringBuilder newPlaceholder1 = null;
+		//
+		for (int i = 0; i < newPlaceholder.length(); i++) {
+
+			if (word.getWord().charAt(i) == letter.charAt(0)) {
+
+
+				counter++;
+			} 
+		}
+		//
+
+		return counter;
 	}
 
 }

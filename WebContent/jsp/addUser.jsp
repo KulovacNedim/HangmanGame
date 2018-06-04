@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="css/style.css">
 <title>Insert title here</title>
 </head>
-<body>
+<body class="lightGrey">
 
 
 <section id="container">
@@ -22,7 +22,8 @@
 		
 	<!-- LEFT SIDE -->
 		<section id="leftSide">
-			<img src="images/7.png">
+<!-- 			<img src="images/7.png"> -->
+<%@ include file="adminButtons.jsp"%>
 		</section>
 		
 	<!-- RIGHT SIDE -->
@@ -30,7 +31,7 @@
 			
 			
 
-	
+	<h3>ADD USER SECTION</h3>
 	<form action="addUser" method="post">
 		<label>Username</label> 
 		<input type="text" name="username" id="username" value=""><br /> 

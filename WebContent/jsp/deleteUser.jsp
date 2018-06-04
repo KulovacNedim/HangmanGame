@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="css/style.css">
 <title>Insert title here</title>
 </head>
-<body>
+<body class="lightGrey">
 <section id="container">
 	
 	<!-- HEADER -->
@@ -23,11 +23,13 @@
 		
 	<!-- LEFT SIDE -->
 		<section id="leftSide">
-			<img src="images/7.png">
+<!-- 			<img src="images/7.png"> -->
+<%@ include file="adminButtons.jsp"%>
 		</section>
 		
 	<!-- RIGHT SIDE -->
 		<section id="rightSide">
+		<h3>DELETE USER SECTION</h3>
 			<p>Search for user</p>
 	<form action="search" method="post">
 

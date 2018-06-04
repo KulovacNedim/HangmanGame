@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="css/style.css">
 <title>Insert title here</title>
 </head>
-<body>
+<body class="lightGrey">
 	
 	
 	<section id="container">
@@ -22,7 +22,8 @@
 		
 	<!-- LEFT SIDE -->
 		<section id="leftSide">
-			<img src="images/7.png">
+<!-- 			<img src="images/7.png"> -->
+<%@ include file="adminButtons.jsp"%>
 		</section>
 		
 	<!-- RIGHT SIDE -->
@@ -34,10 +35,10 @@
 <!-- 			<a href="addCategory" class="btn btn-info" role="button">Add word categories</a> -->
 <!-- 			<a href="addWord" class="btn btn-info" role="button">Add words</a> -->
 			
-			<a href="addUser"><input type="button" value="ADD USER"></a><br /><br />
-			<a href="deleteUser"><input type="button" value="DELETE USER"></a><br /><br />
-			<a href="addCategory"><input type="button" value="ADD WORD CATEGORIES"></a><br /><br />
-			<a href="addWord"><input type="button" value="ADD WORDS"></a><br /><br />
+<!-- 			<a href="addUser"><input type="button" value="ADD USER"></a><br /><br /> -->
+<!-- 			<a href="deleteUser"><input type="button" value="DELETE USER"></a><br /><br /> -->
+<!-- 			<a href="addCategory"><input type="button" value="ADD WORD CATEGORIES"></a><br /><br /> -->
+<!-- 			<a href="addWord"><input type="button" value="ADD WORDS"></a><br /><br /> -->
 		</section>
 		
 	</section>
