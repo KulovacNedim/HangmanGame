@@ -20,7 +20,7 @@ public class CategoryDAOImplementation implements CategoryDAOInterface{
 		try (
 				PreparedStatement statement = connection.prepareStatement(query);) {
 
-			statement.setString(1, categoryName);
+			statement.setString(1, categoryName.toUpperCase());
 
 			statement.executeUpdate();
 		}

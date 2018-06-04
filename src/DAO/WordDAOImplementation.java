@@ -65,7 +65,7 @@ public class WordDAOImplementation implements WordDAOInterface {
 
 		try (PreparedStatement statement = connection.prepareStatement(query);) {
 
-			statement.setString(1, word);
+			statement.setString(1, word.toUpperCase());
 			statement.setInt(2, categoryID);
 
 			statement.executeUpdate();
