@@ -25,7 +25,7 @@ public class GameServlet extends HttpServlet {
 		ImageDAOImplementation imageDAO = new ImageDAOImplementation();
 
 		Game game = (Game) req.getSession().getAttribute("game");
-		String letter = (req.getParameter("letter").toUpperCase());
+		String letter = (req.getParameter("letter").toUpperCase()).trim();
 
 		if (letter.length() == 0) {
 

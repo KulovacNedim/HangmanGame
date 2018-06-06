@@ -19,8 +19,8 @@ public class GameLogic {
 		if (letterExist) {
 
 			String newPlaceholder = game.getSolutionPlaceholder();
-			String nova = updatePlaceholder(newPlaceholder, game.getWord(), letter);
-			game.setSolutionPlaceholder(nova);
+			String updatedPlaceholder = updatePlaceholder(newPlaceholder, game.getWord(), letter);
+			game.setSolutionPlaceholder(updatedPlaceholder);
 
 			game.setUsedLetters(game.getUsedLetters() + " " + letter);
 			game.setCorrect(game.getCorrect() + correctLetters(newPlaceholder, game.getWord(), letter));
@@ -78,24 +78,27 @@ public class GameLogic {
 	}
 
 	private String updatePlaceholder(String newPlaceholder, Word word, String letter) {
-		String digestWord = "";
+		String digestedWord = "";
 
 		for (int i = 0; i < newPlaceholder.length(); i++) {
 
 			if (word.getWord().charAt(i) == letter.charAt(0)) {
 
-				digestWord += word.getWord().charAt(i);
+				digestedWord += word.getWord().charAt(i);
 
+			} else if (word.getWord().charAt(i) == " ".charAt(0)) {
+				digestedWord += " ";
+
+			} else if (newPlaceholder.charAt(i) == '-') {
+				digestedWord += "-";
+			
 			} else {
-				if (newPlaceholder.charAt(i) == '-') {
-					digestWord += "-";
-				} else {
-					digestWord += newPlaceholder.charAt(i);
-				}
+				digestedWord += newPlaceholder.charAt(i);
 			}
+
 		}
 
-		return digestWord;
+		return digestedWord;
 	}
 
 	public boolean doesLetterExistInWord(Word word, String letter) {
@@ -128,10 +131,28 @@ public class GameLogic {
 		String solutionPlaceholder = "";
 
 		for (int i = 0; i < word.getWord().length(); i++) {
-			solutionPlaceholder = solutionPlaceholder + "-";
+			if (word.getWord().charAt(i) == " ".charAt(0)) {
+				
+				solutionPlaceholder += " ";
+			} else {
+				
+				solutionPlaceholder += "-";
+			}	
 		}
 
 		return solutionPlaceholder;
+	}
+
+	public int getInitCorrects(Word word) {
+		
+		int counter = 0;
+		
+		for (int i = 0; i < word.getWord().length(); i++) {
+			if (word.getWord().charAt(i) == " ".charAt(0)) {
+				counter++;
+			}
+		}
+		return counter;
 	}
 
 }

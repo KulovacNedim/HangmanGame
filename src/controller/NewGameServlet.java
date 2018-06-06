@@ -62,13 +62,12 @@ public class NewGameServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 
-//			Game game = (Game) req.getSession().getAttribute("game");
 			Game game = new Game();
 			game.setUser(user);
 			game.setScore(100);
 			game.setWord(word);
 			game.setCategory(categoryObj);
-			game.setCorrect(0);
+			game.setCorrect(gameLogic.getInitCorrects(word));
 			game.setMisses(0);
 			game.setSolutionPlaceholder(gameLogic.getSolutionPlaceholder(game.getWord()));
 			game.setUsedLetters("");
