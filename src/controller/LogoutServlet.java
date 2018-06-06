@@ -15,27 +15,29 @@ import model.Game;
 
 @WebServlet("/logout")
 public class LogoutServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 
 	PointsDAOImplementation pointsDAO = new PointsDAOImplementation();
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		Game game = (Game)req.getSession().getAttribute("game");
-		
-		//ponavlja se
-		if (game.getGeneralScore() != 0) {
+
+		Game game = (Game) req.getSession().getAttribute("game");
+
+		if (Game.getGeneralScore() != 0) {
 			try {
 				pointsDAO.saveScore(game.getUser().getUserID(), Game.getGeneralScore());
 				Game.setGeneralScore(0);
-				game.setMisses(7);//ovo dvoje staviti i na ostala mjesta ili sve u jednu metodu
+				game.setMisses(7);
+
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		
+
 		HttpSession session = req.getSession();
 		session.invalidate();
+		
 		req.getRequestDispatcher("jsp/login.jsp").forward(req, resp);
 	}
 }

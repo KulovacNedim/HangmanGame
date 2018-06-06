@@ -6,17 +6,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import model.Points;
 
 public class PointsDAOImplementation implements PointsDAOInterface {
-	
+
 	Connection connection = DBConnection.getConnectionToDatabase();
 
 	@Override
 	public void saveScore(int userID, int score) throws SQLException {
-		
+
 		String query = "INSERT INTO points(UserID, Points) VALUES (?, ?)";
 
 		try (PreparedStatement statement = connection.prepareStatement(query);) {
@@ -28,14 +27,14 @@ public class PointsDAOImplementation implements PointsDAOInterface {
 		}
 
 	}
-	
+
 	@Override
 	public ArrayList<Points> getTopTen() throws SQLException {
-		
+
 		UserDAOImplementation userDAO = new UserDAOImplementation();
-		
+
 		ArrayList<Points> topTen = new ArrayList<>();
-		
+
 		String query = "SELECT * FROM points ORDER BY Points DESC LIMIT 10;";
 
 		ResultSet rs = null;
@@ -50,9 +49,20 @@ public class PointsDAOImplementation implements PointsDAOInterface {
 				topTen.add(points);
 			}
 		}
-		
+
 		return topTen;
 
+	}
+
+	@Override
+	public void daleteUsersScore(int userID) throws SQLException {
+
+		String query = "DELETE FROM points WHERE UserID = " + userID;
+
+		try (PreparedStatement statement = connection.prepareStatement(query);) {
+
+			statement.executeUpdate();
+		}
 	}
 
 }

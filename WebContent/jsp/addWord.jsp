@@ -5,74 +5,70 @@
 <%@page import="model.Category"%>
 <%@page import="java.util.Iterator"%>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Varela+Round" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
-<title>Insert title here</title>
-</head>
-<body class="lightGrey">
-<section id="container">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Varela+Round" rel="stylesheet">
+		<link rel="stylesheet" href="css/style.css">
+		<title>Insert title here</title>
+	</head>
 	
-	<!-- HEADER -->
-	<section id="header">
-		<%@ include file="header.jsp"%>
-		<br class="clear"/>
-	</section>
-	
-	<!-- CONTENT -->
-	<section id="content">
-		
-	<!-- LEFT SIDE -->
-		<section id="leftSide">
-<!-- 			<img src="images/7.png"> -->
-<%@ include file="adminButtons.jsp"%>
-<br class="clear"/>
+	<body class="lightGrey">
+		<section id="container">
+			
+			<!-- HEADER -->
+			<section id="header">
+				<%@ include file="header.jsp"%>
+				
+				<br class="clear"/>
+			</section>
+			
+			<!-- CONTENT -->
+			<section id="content">
+				
+				<!-- LEFT SIDE -->
+				<section id="leftSide">
+					<%@ include file="adminButtons.jsp"%>
+					
+					<br class="clear"/>
+				</section>
+				
+				<!-- RIGHT SIDE -->
+				<section id="rightSide">
+				
+					<h3>ADD WORD SECTION</h3>
+						<br />
+						
+					<form action="addWord" method="post" class="form">
+						<label>Word</label> <input type="text" name="word" id="word" value=""><br />
+						<label>Select category</label>
+						<select name="categoryID">
+						<%
+							ArrayList<Category> categories = (ArrayList) session.getAttribute("categories");
+							Iterator<Category> iterator = categories.iterator();
+							while (iterator.hasNext()) {
+								Category category = iterator.next();
+						%>
+						<option value="<%=category.getCategoryID()%>"><%=category.getCategoryName()%></option>
+						<%
+							}
+						%>
+
+						</select> 
+						
+						<input class="button" type="submit" value="Save word">
+					</form>
+					
+					<br class="clear"/>
+				</section>
+				
+			</section>
+			
+			<!-- FOOTER -->
+			<section id="footer">
+				<%@ include file="footer.jsp"%>
+			</section>
+			
 		</section>
-		
-	<!-- RIGHT SIDE -->
-		<section id="rightSide">
-		
-		<h3>ADD WORD SECTION</h3>
-			<br />
-	<form action="addWord" method="post" class="form">
-		<label>Word</label> <input type="text" name="word" id="word" value=""><br />
 
-		<label>Select category</label>
-		<select name="categoryID">
-
-			<%
-				ArrayList<Category> categories = (ArrayList) session.getAttribute("categories");
-				Iterator<Category> iterator = categories.iterator();
-				while (iterator.hasNext()) {
-					Category category = iterator.next();
-			%>
-			<option value="<%=category.getCategoryID()%>"><%=category.getCategoryName()%></option>
-
-			<%
-				}
-			%>
-
-		</select> 
-		<br class="clear"/>
-		<input class="button" type="submit" value="Save word">
-	</form>
-	<br class="clear"/>
-		</section>
-		
-	</section>
-	
-	<!-- FOOTER -->
-	<section id="footer">
-			<%
-		if (request.getAttribute("wordRegSuccess") != null) {
-	%>
-	<%=request.getAttribute("wordRegSuccess")%><br />
-	<%
-		}
-	%>
-	</section>
-</section>
-
-</body>
+	</body>
 </html>

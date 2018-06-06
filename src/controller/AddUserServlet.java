@@ -14,35 +14,20 @@ import DAO.UserDAOImplementation;
 import validation.HashValidation;
 import validation.RegisterValidation;
 
-/**
- * Servlet implementation class AddUserServlet
- */
 @WebServlet("/addUser")
 public class AddUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public AddUserServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		RequestDispatcher forward = request.getRequestDispatcher("jsp/addUser.jsp");
 		forward.forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		//snimi usera
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 
@@ -55,9 +40,9 @@ public class AddUserServlet extends HttpServlet {
 				if (regValidation.isValidPassword(password)) {
 
 					UserDAOImplementation userDAO = new UserDAOImplementation();
-					
+
 					userDAO.addUser(username, hashValidation.getHash(password));
-					
+
 					String registerSuccess = "New user registered.";
 					request.setAttribute("registerSuccess", registerSuccess);
 
@@ -90,5 +75,5 @@ public class AddUserServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
-		
+
 }

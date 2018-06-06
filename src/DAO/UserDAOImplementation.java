@@ -37,7 +37,7 @@ public class UserDAOImplementation implements UserDAOInterface {
 
 		return users;
 	}
-	
+
 	@Override
 	public ArrayList<User> searchForUsers(String searchString) throws SQLException {
 
@@ -109,29 +109,9 @@ public class UserDAOImplementation implements UserDAOInterface {
 		}
 
 		return user;
-		//s
-//		User user = null;
-//
-//		String query = "SELECT * FROM users WHERE UserName = '" + userName + "' AND Password = '" + password + "'";
-//
-//		ResultSet rs = null;
-//
-//		try (Statement statement = connection.createStatement();) {
-//
-//			rs = statement.executeQuery(query);
-//
-//			while (rs.next()) {
-//
-//				user = new User(rs.getInt("UserID"), rs.getString("UserName"), rs.getString("Password"),
-//						rs.getBoolean("Admin"));
-//
-//				
-//			}
-//		}
-//		rs.close();
-//		return user;
+
 	}
-	
+
 	@Override
 	public User getContactByUserName(String userName) throws SQLException {
 
@@ -181,9 +161,12 @@ public class UserDAOImplementation implements UserDAOInterface {
 			statement.executeUpdate();
 		}
 	}
-	
+
 	@Override
 	public void deleteUser(int userID) throws SQLException {
+
+		PointsDAOImplementation pointsDAO = new PointsDAOImplementation();
+		pointsDAO.daleteUsersScore(userID);
 
 		String query = "DELETE FROM users WHERE UserID = '" + userID + "';";
 

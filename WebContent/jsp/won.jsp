@@ -5,57 +5,59 @@
 <%@page import="model.Game"%>
 <%@page import="model.Category"%>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Varela+Round" rel="stylesheet"> 
-<link rel="stylesheet" href="css/style.css">
-<title>Insert title here</title>
-</head>
-<body class="lightGrey">
-
-	<% Game game = (Game) session.getAttribute("game");%>
-
-<section id="container">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Varela+Round" rel="stylesheet"> 
+		<link rel="stylesheet" href="css/style.css">
+		<title>Insert title here</title>
+	</head>
 	
-	<!-- HEADER -->
-	<section id="header">
-		<%@ include file="header.jsp"%>
-		<br class="clear"/>
-	</section>
-	
-	<!-- CONTENT -->
-	<section id="content">
-		
-	<!-- LEFT SIDE -->
-		<section id="leftSide">
-<!-- 			<img src="images/7.png"> -->
-<img src="<%=game.getImagePath()%>">
-<br class="clear"/>
-		</section>
-		
-	<!-- RIGHT SIDE -->
-		<section id="rightSide">
+	<body class="lightGrey">
+
+		<% Game game = (Game) session.getAttribute("game");%>
+
+		<section id="container">
 			
-			<br />
-			<h1>Congratulations!!!</h1>
-			<h1>YOU WON!!!</h1>
-			<br />
-			<h3>YOUR GENERAL SCORE IS: <%= Game.getGeneralScore() %></h3>
-			<br/>
-			<br/>
-			<a href="newGame"><input class="button1" type="button" value="PLAY NEW GAME"></a>
-			<a href="welcome"><input class="button1" type="button" value="WELCOME SCREEN"></a>
-			<a href="logout"><input class="button1" type="button" value="LOG OUT"></a>
+			<!-- HEADER -->
+			<section id="header">
+				<%@ include file="header.jsp"%>
+				
+				<br class="clear"/>
+			</section>
+			
+			<!-- CONTENT -->
+			<section id="content">
+				
+				<!-- LEFT SIDE -->
+				<section id="leftSide">
+					<img src="<%=game.getImagePath()%>">
+					
+					<br class="clear"/>
+				</section>
+				
+				<!-- RIGHT SIDE -->
+				<section id="rightSide">
+					<br />
+					<h1>Congratulations!!!</h1>
+					<h1>YOU WON!!!</h1>
+					<br />
+					<h3>YOUR GENERAL SCORE IS: <%= Game.getGeneralScore() %></h3>
+					<br/>
+					<br/>
+					<a href="newGame"><input class="button1" type="button" value="PLAY NEW GAME"></a>
+					<a href="welcome"><input class="button1" type="button" value="WELCOME SCREEN"></a>
+					<a href="logout"><input class="button1" type="button" value="LOG OUT"></a>
+				</section>
+				
+				<br class="clear"/>
+			</section>
+			
+			<!-- FOOTER -->
+			<section id="footer">
+				<%@ include file="footer.jsp"%>
+			</section>
+			
 		</section>
-		<br class="clear"/>
-	</section>
 	
-	<!-- FOOTER -->
-	<section id="footer">
-		
-	</section>
-</section>
-	
-	
-</body>
+	</body>
 </html>

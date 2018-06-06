@@ -6,72 +6,72 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.Game"%>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Varela+Round" rel="stylesheet"> 
-<link rel="stylesheet" href="css/style.css">
-<title>Insert title here</title>
-</head>
-<body class="lightGrey">
-
-<% Game game = (Game) session.getAttribute("game");%>
-
-<section id="container">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Varela+Round" rel="stylesheet"> 
+		<link rel="stylesheet" href="css/style.css">
+		<title>Insert title here</title>
+	</head>
 	
-	<!-- HEADER -->
-	<section id="header">
-		<%@ include file="header.jsp"%>
-		<br class="clear"/>
-	</section>
+	<body class="lightGrey">
+
+	<% Game game = (Game) session.getAttribute("game");%>
+
+		<section id="container">
+			
+			<!-- HEADER -->
+			<section id="header">
+				<%@ include file="header.jsp"%>
+				
+				<br class="clear"/>
+			</section>
+			
+			<!-- CONTENT -->
+			<section id="content">
+				
+					<!-- LEFT SIDE -->
+					<section id="leftSide">
+						<img src="<%=game.getImagePath()%>">
+						
+						<br class="clear"/>
+					</section>
+					
+					<!-- RIGHT SIDE -->
+					<section id="rightSide">
+						
+						<h1>Choose one of categories:</h1>
+
+						<form action="newGame" method=get class="optionList">
+							
+							<section class="scrollWindow">
+								<%
+									ArrayList<Category> categories = (ArrayList) session.getAttribute("categories");
+									Iterator<Category> iterator = categories.iterator();
+									while (iterator.hasNext()) {
+										Category category = iterator.next();
+								%>
+								<input  type="radio" name="categoryString" id="searchCriteria"
+									value="<%=category.getCategoryName()%>"><%=category.getCategoryName()%><br />
+								<%
+									}
+								%>
+								<br class="clear"/>
+							</section>
+							
+							<input type="submit" class="button1" value="PLAY">
+						</form>
+						
+						<br class="clear"/>
+					</section>
+					
+					<br class="clear"/>
+			</section>
+			
+			<!-- FOOTER -->
+			<section id="footer">
+				<%@ include file="footer.jsp"%>
+			</section>
+		</section>
 	
-	<!-- CONTENT -->
-	<section id="content">
-		
-	<!-- LEFT SIDE -->
-		<section id="leftSide">
-<!-- 			<img src="images/7.png"> -->
-<img src="<%=game.getImagePath()%>">
-<br class="clear"/>
-		</section>
-		
-	<!-- RIGHT SIDE -->
-		<section id="rightSide">
-				<h1>Choose one of categories:</h1>
-
-	<form action="newGame" method=get class="optionList">
-<section class="scrollWindow">
-		<%
-			ArrayList<Category> categories = (ArrayList) session.getAttribute("categories");
-			Iterator<Category> iterator = categories.iterator();
-			while (iterator.hasNext()) {
-				Category category = iterator.next();
-		%>
-		<input  type="radio" name="categoryString" id="searchCriteria"
-			value="<%=category.getCategoryName()%>"><%=category.getCategoryName()%><br />
-
-		<%
-			}
-		%>
-		<br class="clear"/>
-		</section>
-	<input type="submit" class="button1" value="PLAY">
-
-	</form>
-	<br class="clear"/>
-		</section>
-		<br class="clear"/>
-	</section>
-	
-	<!-- FOOTER -->
-	<section id="footer">
-	<% if (request.getAttribute("categoryErrorMessage") != null) { %>
-		<p><%=request.getAttribute("categoryErrorMessage")%></p><br />
-		<% } %>
-	</section>
-</section>
-
-
-
-		
-</body>
+	</body>
 </html>

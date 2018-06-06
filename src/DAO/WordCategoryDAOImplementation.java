@@ -31,7 +31,7 @@ public class WordCategoryDAOImplementation implements WordCategoryDAOInterface {
 			}
 
 		}
-		
+
 		return categories;
 	}
 
@@ -39,7 +39,7 @@ public class WordCategoryDAOImplementation implements WordCategoryDAOInterface {
 	public Category getCategoryByName(String categoryString) throws SQLException {
 
 		Category category = new Category();
-		
+
 		String query = "SELECT * FROM wordcategory WHERE Word = '" + categoryString + "'";
 
 		ResultSet rs = null;

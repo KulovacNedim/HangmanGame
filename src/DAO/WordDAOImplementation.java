@@ -85,7 +85,6 @@ public class WordDAOImplementation implements WordDAOInterface {
 			word = words.get(random);
 		} catch (IllegalArgumentException e) {
 			// TODO: handle exception
-			System.out.println("jah IllegalArgumentException");
 		}
 
 		return word;
@@ -102,7 +101,6 @@ public class WordDAOImplementation implements WordDAOInterface {
 			word = words.get(random);
 		} catch (IllegalArgumentException e) {
 			// TODO: handle exception
-			System.out.println("jah IllegalArgumentException");
 		}
 
 		return word;

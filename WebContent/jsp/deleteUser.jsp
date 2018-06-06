@@ -5,84 +5,72 @@
 <%@page import="model.User"%>
 <%@page import="java.util.Iterator"%>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Varela+Round" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
-<title>Insert title here</title>
-</head>
-<body class="lightGrey">
-<section id="container">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Varela+Round" rel="stylesheet">
+		<link rel="stylesheet" href="css/style.css">
+		<title>Insert title here</title>
+	</head>
 	
-	<!-- HEADER -->
-	<section id="header">
-		<%@ include file="header.jsp"%>
-		<br class="clear"/>
-	</section>
+	<body class="lightGrey">
 	
-	<!-- CONTENT -->
-	<section id="content">
+		<section id="container">
 		
-	<!-- LEFT SIDE -->
-		<section id="leftSide">
-<!-- 			<img src="images/7.png"> -->
-<%@ include file="adminButtons.jsp"%>
-<br class="clear"/>
-		</section>
+			<!-- HEADER -->
+			<section id="header">
+				<%@ include file="header.jsp"%>
+				
+				<br class="clear"/>
+			</section>
 		
-	<!-- RIGHT SIDE -->
-		<section id="rightSide">
-		<h3>DELETE USER SECTION</h3>
-		<br /><br /><br />
-<!-- 			<p>Search for user</p> -->
-	<form action="search" method="post" class="form">
+			<!-- CONTENT -->
+			<section id="content">
+				
+				<!-- LEFT SIDE -->
+				<section id="leftSide">
+				<%@ include file="adminButtons.jsp"%>
+		
+					<br class="clear"/>
+				</section>
+				
+				<!-- RIGHT SIDE -->
+				<section id="rightSide">
+				
+					<h3>DELETE USER SECTION</h3>
+					<br /><br /><br />
 
-		<input type="search" placeholder="Search for user..." name="search"
-			value="<%=session.getAttribute("searchString") == null ? "" : session.getAttribute("searchString")%>">
-		<input class="button" type="submit" value="Search">
-	</form>
+					<form action="search" method="post" class="form">
+						<input type="search" placeholder="Search for user..." name="search"
+						value="<%=session.getAttribute("searchString") == null ? "" : session.getAttribute("searchString")%>">
+						<input class="button" type="submit" value="Search">
+					</form>
 
-	<form action="deleteUser" method="post" class="form">
-		<select name="userID">
-
-			<%
-				ArrayList<User> searchResults = (ArrayList) session.getAttribute("searchResult");
-				Iterator<User> iterator = searchResults.iterator();
-				while (iterator.hasNext()) {
-					User user = iterator.next();
-			%>
-			<option value="<%=user.getUserID()%>"><%=user.getUsername()%></option>
-
-			<%
-				}
-			%>
-
+					<form action="deleteUser" method="post" class="form">
+						<select name="userID">
+							<%
+								ArrayList<User> searchResults = (ArrayList) session.getAttribute("searchResult");
+								Iterator<User> iterator = searchResults.iterator();
+								while (iterator.hasNext()) {
+									User user = iterator.next();
+							%>
+							<option value="<%=user.getUserID()%>"><%=user.getUsername()%></option>
+							<%
+								}
+							%>
+						</select> <input class="button" type="submit" value="Delete user">
+					</form>
 			
-		</select> <input class="button" type="submit" value="Delete user">
-	</form>
-	<br class="clear"/>
+					<br class="clear"/>
+				</section>
+				
+				<br class="clear"/>
+			</section>
+		
+			<!-- FOOTER -->
+			<section id="footer">
+				<%@ include file="footer.jsp"%>
+			</section>
+			
 		</section>
-		<br class="clear"/>
-	</section>
-	
-	<!-- FOOTER -->
-	<section id="footer">
-		<%
-		if (request.getAttribute("userDelSuccess") != null) {
-	%>
-	<%=request.getAttribute("userDelSuccess")%><br />
-	<%
-		}
-	%>
-	</section>
-</section>
-
-
-
-	
-
-
-
-
-</body>
+	</body>
 </html>

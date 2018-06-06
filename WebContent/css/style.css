@@ -55,7 +55,7 @@
 #rightSide h1 {
 	text-align: center;
 	letter-spacing: 5px;
-	color: #F44336;
+	color: #FF9800;
 	font-size: 30px;
 	font-family: 'Varela Round', sans-serif;
 	padding-top:7px;
@@ -229,7 +229,7 @@
 	font-size: 40px !important;
 	font-family: 'Ubuntu Condensed', sans-serif;
 	letter-spacing: 10px !important;
-	color: #F44336 !important;
+	color: #FF9800 !important;
 	margin-bottom: 20px;
 }
 

@@ -8,76 +8,75 @@
 <%@page import="model.Points"%>
 <%@page import="java.util.Iterator"%>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Varela+Round" rel="stylesheet"> 
-<link rel="stylesheet" href="css/style.css">
-<title>Insert title here</title>
-</head>
-<body class="lightGrey">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Varela+Round" rel="stylesheet"> 
+		<link rel="stylesheet" href="css/style.css">
+		<title>Insert title here</title>
+	</head>
+	<body class="lightGrey">
 
-	<% Game game = (Game) session.getAttribute("game");%>
-	
-	<section id="container">
-	
-	<!-- HEADER -->
-	<section id="header">
-		<%@ include file="header.jsp"%>
-		<br class="clear"/>
-	</section>
-	
-	<!-- CONTENT -->
-	<section id="content">
+		<% Game game = (Game) session.getAttribute("game");%>
 		
-	<!-- LEFT SIDE -->
-		<section id="leftSide">
-<!-- 			<img src="images/7.png"> -->
-<img src="<%=game.getImagePath()%>">
-<br class="clear"/>
-		</section>
+		<section id="container">
 		
-	<!-- RIGHT SIDE -->
-		<section id="rightSide">
-			
-			<h1>TOP 10 SCORES:</h1>
-			
-			<section class="scrollWindow">
-			
-			<table class="table">
-			<tr>
-			<td>USER</td><td>SCORE</td>
-			</tr>
-
-			<%
-				ArrayList<Points> arrPoints = (ArrayList) session.getAttribute("arrPoints");
-				Iterator<Points> iterator = arrPoints.iterator();
-				while (iterator.hasNext()) {
-					Points points = iterator.next();
-			%>
-			
-			<tr>
-			<td><%=points.getName()%></td><td><%=points.getPoints()%></td>
-			</tr>
-			<%
-				}
-			%>
-			
-			
-			</table>
+			<!-- HEADER -->
+			<section id="header">
+				<%@ include file="header.jsp"%>
+				
+				<br class="clear"/>
 			</section>
-			
-			<a href="welcome"><input class="button1" type="button" value="WELCOME SCREEN"></a>
-		<br class="clear"/>
-		</section>
-		<br class="clear"/>
-	</section>
-	
-	<!-- FOOTER -->
-	<section id="footer">
 		
-	</section>
-</section>
-
+			<!-- CONTENT -->
+			<section id="content">
+				
+				<!-- LEFT SIDE -->
+				<section id="leftSide">
+					<img src="<%=game.getImagePath()%>">
+		
+					<br class="clear"/>
+				</section>
+				
+				<!-- RIGHT SIDE -->
+				<section id="rightSide">
+					
+					<h1>TOP 10 SCORES:</h1>
+					
+					<section class="scrollWindow">
+					
+						<table class="table">
+							<tr>
+							<td>USER</td><td>SCORE</td>
+							</tr>
+							<%
+								ArrayList<Points> arrPoints = (ArrayList) session.getAttribute("arrPoints");
+								Iterator<Points> iterator = arrPoints.iterator();
+								while (iterator.hasNext()) {
+									Points points = iterator.next();
+							%>
+							<tr>
+							<td><%=points.getName()%></td><td><%=points.getPoints()%></td>
+							</tr>
+							<%
+								}
+							%>
+						</table>
+					</section>
+				
+					<a href="welcome"><input class="button1" type="button" value="WELCOME SCREEN"></a>
+				
+					<br class="clear"/>
+				</section>
+				
+				<br class="clear"/>
+			</section>
+		
+			<!-- FOOTER -->
+			<section id="footer">
+				<%@ include file="footer.jsp"%>
+			</section>
+		
+		</section>
 	
-</body>
+	</body>
 </html>
