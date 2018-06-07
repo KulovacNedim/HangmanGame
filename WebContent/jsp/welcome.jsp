@@ -5,10 +5,7 @@
 <%@page import="model.Game"%>
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Varela+Round" rel="stylesheet">
-		<link rel="stylesheet" href="css/style.css">
-		<title>Insert title here</title>
+		<%@ include file="headContent.jsp"%>
 	</head>
 	
 	<body class="lightGrey">
@@ -31,6 +28,7 @@
 				
 				<!-- LEFT SIDE -->
 				<section id="leftSide">
+					<span class="helper"></span>
 					<img src="<%=game.getImagePath()%>">
 					
 					<br class="clear"/>
@@ -40,14 +38,16 @@
 				<section id="rightSide">
 					
 					<h1>WELCOME TO MAIN MENU</h1>
-					<br /><br /><br /><br /><br />
 
-					<a href="categoryOptionsServlet"><input class="button1" type="button" value="PLAY NEW GAME">
-					<a href="dashboard"><input class="button1" type="button" value="DASHBOARD">
-					<% if (user.isAdmin()) { %>
-					<%@ include file="adminFunctions.jsp"%>
-					<% } %>
-					<a href="logout"><input class="button1" type="button" value="LOGOUT">
+					<section class="buttonContainer">
+						<a href="categoryOptionsServlet"><input class="button1" type="button" value="PLAY NEW GAME">
+						<a href="dashboard"><input class="button1" type="button" value="DASHBOARD">
+						<% if (user.isAdmin()) { %>
+						<%@ include file="adminFunctions.jsp"%>
+						<% } %>
+						<a href="logout"><input class="button1" type="button" value="LOGOUT">
+					</section>
+					
 				
 					<br class="clear"/>
 				</section>

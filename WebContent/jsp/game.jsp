@@ -6,10 +6,7 @@
 <%@page import="model.Category"%>
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Varela+Round" rel="stylesheet">
-		<link rel="stylesheet" href="css/style.css">
-		<title>Insert title here</title>
+		<%@ include file="headContent.jsp"%>
 	</head>
 	
 	<body class="lightGrey">
@@ -44,17 +41,22 @@
 					
 					<div class="alignLeft">
 						<p>Word category: ${game.category.categoryName}</p>
-						<p class="smallFont">MISSES: ${game.misses}</p><p class="smallFont">corect: ${game.correct}</p>
+						<p class="smallFont">MISSES: ${game.misses}</p>
+<%-- 						<p class="smallFont">CORRECT: ${game.correct}</p> --%>
 						<p class="smallFont">USED LETTERS: ${game.usedLetters}</p>
 					</div>
 					
 					<p class="word">${game.solutionPlaceholder}</p>
 					
-					<form action="game" method="post" class="form">
-						<label>Enter letter or whole word:  </label> 
-						<input type="text" name="letter" id="letter" autocomplete="off" autofocus><br /> 
-						<input class="button" type="submit" value="ENTER">
-					</form>
+					<section class="buttonContainer">
+						
+						<form action="game" method="post" class="form">
+							<label>Enter letter or whole word:  </label> 
+							<input type="text" name="letter" id="letter" autocomplete="off" autofocus><br /> 
+							<input class="button" type="submit" value="ENTER">
+						</form>
+					</section>
+					
 					
 					<br class="clear"/>
 				</section>

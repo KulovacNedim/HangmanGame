@@ -6,10 +6,7 @@
 <%@page import="java.util.Iterator"%>
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Varela+Round" rel="stylesheet">
-		<link rel="stylesheet" href="css/style.css">
-		<title>Insert title here</title>
+		<%@ include file="headContent.jsp"%>
 	</head>
 	
 	<body class="lightGrey">
@@ -34,30 +31,30 @@
 				
 				<!-- RIGHT SIDE -->
 				<section id="rightSide">
-				
-					<h3>ADD WORD SECTION</h3>
-						<br />
-						
-					<form action="addWord" method="post" class="form">
-						<label>Word</label> <input type="text" name="word" id="word" value=""><br />
-						<label>Select category</label>
-						<select name="categoryID">
-						<%
-							ArrayList<Category> categories = (ArrayList) session.getAttribute("categories");
-							Iterator<Category> iterator = categories.iterator();
-							while (iterator.hasNext()) {
-								Category category = iterator.next();
-						%>
-						<option value="<%=category.getCategoryID()%>"><%=category.getCategoryName()%></option>
-						<%
-							}
-						%>
-
-						</select> 
-						
-						<input class="button" type="submit" value="Save word">
-					</form>
-					
+					<div class="adminFunction">
+						<h3>ADD WORD SECTION</h3>
+							<br />
+							
+						<form action="addWord" method="post" class="form">
+							<label>Word</label> <input type="text" name="word" id="word" value=""><br />
+							<label>Select category</label>
+							<select name="categoryID">
+							<%
+								ArrayList<Category> categories = (ArrayList) session.getAttribute("categories");
+								Iterator<Category> iterator = categories.iterator();
+								while (iterator.hasNext()) {
+									Category category = iterator.next();
+							%>
+							<option value="<%=category.getCategoryID()%>"><%=category.getCategoryName()%></option>
+							<%
+								}
+							%>
+	
+							</select> 
+							
+							<input class="button" type="submit" value="Save word">
+						</form>
+					</div>
 					<br class="clear"/>
 				</section>
 				

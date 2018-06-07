@@ -4,15 +4,14 @@
 	background-color: #F1F1F1;
 }
 
-.clear
-{
-        clear:both;
+.clear {
+	clear: both;
 }
 
 #container {
 	width: 80%;
 	margin: 60px auto 0 auto;
-	position:relative;
+	position: relative;
 	border-top: 5px solid #FF9800;
 	border-bottom: 5px solid #FF9800;
 }
@@ -38,18 +37,19 @@
 }
 
 #leftSide {
-	float:left;
+	float: left;
 	width: 35%;
 }
 
 #leftSide img {
 	width: 90%;
 	margin: 0 auto 0 auto;
+	vertical-align: middle;
 }
 
 #rightSide {
 	width: 65%;
-	float:right;
+	float: right;
 }
 
 #rightSide h1 {
@@ -58,9 +58,8 @@
 	color: #FF9800;
 	font-size: 30px;
 	font-family: 'Varela Round', sans-serif;
-	padding-top:7px;
+	padding-top: 7px;
 	margin: 7px 0px 0px 0px;
-	
 }
 
 #rightSide h3 {
@@ -69,9 +68,14 @@
 	color: #FF9800;
 	font-size: 24px;
 	font-family: 'Varela Round', sans-serif;
-	padding-top:7px;
+	padding-top: 7px;
 	margin: 7px 0px 0px 0px;
-	
+}
+
+.buttonContainer {
+	position: absolute;
+	bottom: 55px;
+	width: 65%;
 }
 
 #rightSide form label {
@@ -85,95 +89,93 @@
 /* #rightSide form  */
 .form input {
 	width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: none;
-    border-bottom: 2px solid #FF9800;
-    font-family: 'Ubuntu Condensed', sans-serif;
-    font-size: 20px;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: none;
+	border-bottom: 2px solid #FF9800;
+	font-family: 'Ubuntu Condensed', sans-serif;
+	font-size: 20px;
 }
 
 .form select {
 	width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: none;
-    border-bottom: 2px solid #FF9800;
-    font-family: 'Ubuntu Condensed', sans-serif;
-    font-size: 20px;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: none;
+	border-bottom: 2px solid #FF9800;
+	font-family: 'Ubuntu Condensed', sans-serif;
+	font-size: 20px;
 }
 
 #rightSide a {
 	text-decoration: none;
-	}
-	
+}
+
 #footer {
 	width: 100%;
 	height: 40px;
 	background-color: #2196F3;
 }
 
-
-
 .button1 {
-	width: 95%;
+	width: 99%;
 	margin: 10px auto 0 auto;
 	background: #ffb700;
-    background-image: -webkit-linear-gradient(top, #ffb700, #FF9800);
-    background-image: -moz-linear-gradient(top, #ffb700, #FF9800);
-    background-image: -ms-linear-gradient(top, #ffb700, #FF9800);
-    background-image: -o-linear-gradient(top, #ffb700, #FF9800);
-    background-image: linear-gradient(to bottom, #ffb700, #FF9800);
-    -webkit-border-radius: 4;
-    -moz-border-radius: 4;
-    border-radius: 4px;
-    font-family: 'Varela Round', sans-serif;
-    color: #ffffff;
-    font-size: 20px;
-    padding: 10px 20px 10px 20px;
-    text-decoration: none;
-    cursor: pointer;
+	background-image: -webkit-linear-gradient(top, #ffb700, #FF9800);
+	background-image: -moz-linear-gradient(top, #ffb700, #FF9800);
+	background-image: -ms-linear-gradient(top, #ffb700, #FF9800);
+	background-image: -o-linear-gradient(top, #ffb700, #FF9800);
+	background-image: linear-gradient(to bottom, #ffb700, #FF9800);
+	-webkit-border-radius: 4;
+	-moz-border-radius: 4;
+	border-radius: 4px;
+	font-family: 'Varela Round', sans-serif;
+	color: #ffffff;
+	font-size: 20px;
+	padding: 10px 20px 10px 20px;
+	text-decoration: none;
+	cursor: pointer;
 }
 
 .button1:hover {
 	background: #FF9800;
-    background-image: -webkit-linear-gradient(top, #FF9800, #FF9800);
-    background-image: -moz-linear-gradient(top, #FF9800, #FF9800);
-    background-image: -ms-linear-gradient(top, #FF9800, #FF9800);
-    background-image: -o-linear-gradient(top, #FF9800, #FF9800);
-    background-image: linear-gradient(to bottom, #FF9800, #FF9800);
-    text-decoration: none;
+	background-image: -webkit-linear-gradient(top, #FF9800, #FF9800);
+	background-image: -moz-linear-gradient(top, #FF9800, #FF9800);
+	background-image: -ms-linear-gradient(top, #FF9800, #FF9800);
+	background-image: -o-linear-gradient(top, #FF9800, #FF9800);
+	background-image: linear-gradient(to bottom, #FF9800, #FF9800);
+	text-decoration: none;
 }
 
 .button {
 	width: 100%;
 	background: #ffb700;
-    background-image: -webkit-linear-gradient(top, #ffb700, #FF9800);
-    background-image: -moz-linear-gradient(top, #ffb700, #FF9800);
-    background-image: -ms-linear-gradient(top, #ffb700, #FF9800);
-    background-image: -o-linear-gradient(top, #ffb700, #FF9800);
-    background-image: linear-gradient(to bottom, #ffb700, #FF9800);
-    -webkit-border-radius: 4;
-    -moz-border-radius: 4;
-    border-radius: 4px;
-    font-family: 'Varela Round', sans-serif;
-    color: #ffffff;
-    font-size: 20px;
-    padding: 10px 20px 10px 20px;
-    text-decoration: none;
-    cursor: pointer;
+	background-image: -webkit-linear-gradient(top, #ffb700, #FF9800);
+	background-image: -moz-linear-gradient(top, #ffb700, #FF9800);
+	background-image: -ms-linear-gradient(top, #ffb700, #FF9800);
+	background-image: -o-linear-gradient(top, #ffb700, #FF9800);
+	background-image: linear-gradient(to bottom, #ffb700, #FF9800);
+	-webkit-border-radius: 4;
+	-moz-border-radius: 4;
+	border-radius: 4px;
+	font-family: 'Varela Round', sans-serif;
+	color: #ffffff;
+	font-size: 20px;
+	padding: 10px 20px 10px 20px;
+	text-decoration: none;
+	cursor: pointer;
 }
 
 .button:hover {
 	background: #FF9800;
-    background-image: -webkit-linear-gradient(top, #FF9800, #FF9800);
-    background-image: -moz-linear-gradient(top, #FF9800, #FF9800);
-    background-image: -ms-linear-gradient(top, #FF9800, #FF9800);
-    background-image: -o-linear-gradient(top, #FF9800, #FF9800);
-    background-image: linear-gradient(to bottom, #FF9800, #FF9800);
-    text-decoration: none;
+	background-image: -webkit-linear-gradient(top, #FF9800, #FF9800);
+	background-image: -moz-linear-gradient(top, #FF9800, #FF9800);
+	background-image: -ms-linear-gradient(top, #FF9800, #FF9800);
+	background-image: -o-linear-gradient(top, #FF9800, #FF9800);
+	background-image: linear-gradient(to bottom, #FF9800, #FF9800);
+	text-decoration: none;
 }
 
 #footer p {
@@ -182,18 +184,18 @@
 	font-weight: bold;
 	font-size: 20px;
 	font-family: 'Ubuntu Condensed', sans-serif;
-	padding-top:7px;
+	padding-top: 7px;
 	margin: 0px;
 }
 
 .loginTable {
-	width:80%;
+	width: 80%;
 	margin: 0 auto 0 auto;
-	float:right;
+	float: right;
 }
 
 .scrollWindow {
-	padding-top:20px;
+	padding-top: 20px;
 	height: 240px;
 	overflow: auto;
 }
@@ -201,21 +203,21 @@
 .optionList {
 	font-family: 'Ubuntu Condensed', sans-serif;
 	font-size: 25px;
-	margin-botom:20px;
+	margin-botom: 20px;
 	color: #FF9800;
 }
 
-.optionList input{ 
+.optionList input {
 	padding-top: 20px;
-	}
+}
 
 .alignRight {
 	float: right;
-	 }
-	 
+}
+
 .alignLeft {
 	float: left;
-	 }
+}
 
 #rightSide p {
 	font-family: 'Ubuntu Condensed', sans-serif;
@@ -238,23 +240,210 @@
 }
 
 #demo {
-	position:fixed;
+	position: fixed;
 	bottom: 0px;
 	left: 0px;
 }
 
 .table {
-    border-collapse: collapse;
-    width: 100%;
-    font-family: 'Ubuntu Condensed', sans-serif;
-/*     position:relative; */
-/*     top: -300px; */
+	border-collapse: collapse;
+	width: 100%;
+	font-family: 'Ubuntu Condensed', sans-serif;
+	/*     position:relative; */
+	/*     top: -300px; */
 }
 
 .table th, td {
-    text-align: left;
-    padding: 8px;
+	text-align: left;
+	padding: 8px;
 }
 
-.table tr:nth-child(odd) {background-color: #FFFFFF;}
-.table tr:nth-child(even) {background-color: #F1F1F1;}
+.table tr:nth-child(odd) {
+	background-color: #FFFFFF;
+}
+
+.table tr:nth-child(even) {
+	background-color: #F1F1F1;
+}
+
+@media ( max-width : 1000px) {
+	#header {
+		height: 40px;
+	}
+	#header h1 {
+		font-size: 25px;
+		letter-spacing: 5px;
+		padding-top: 5px;
+		margin-bottom: 25px;
+	}
+	#leftSide {
+		float: left;
+		width: 50%;
+	}
+	#rightSide {
+		float: left;
+		width: 50%;
+	}
+	#rightSide h1 {
+		letter-spacing: 5px;
+		font-size: 20px;
+		padding-top: 7px;
+		margin: 7px 0px 0px 0px;
+	}
+	#rightSide h3 {
+		letter-spacing: 5px;
+		color: #FF9800;
+		font-size: 19px;
+		padding-top: 7px;
+		margin: 7px 0px 0px 0px;
+	}
+	#rightSide form label {
+		font-size: 15px;
+		text-align: center;
+	}
+	.form input {
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		font-size: 15px;
+	}
+	.form select {
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		font-size: 20px;
+	}
+	#footer {
+		height: 40px;
+	}
+	#footer p {
+		font-size: 15px;
+	}
+	#rightSide h1 {
+		margin-bottom: 25px;
+	}
+	#rightSide p {
+		font-size: 15px;
+	}
+	.buttonContainer {
+		position: absolute;
+		bottom: 55px;
+		width: 50%;
+	}
+	.scrollWindow {
+		padding-top: 20px;
+		height: 210px;
+	}
+	.button1 {
+		font-size: 15px;
+		padding: 8px 20px 8px 20px;
+	}
+}
+
+@media ( max-width : 600px) {
+	#container {
+		width: 99%;
+	}
+	#content {
+		height: 370px;
+	}
+	.scrollWindow {
+		padding-top: 20px;
+		height: 180px;
+		overflow: auto;
+	}
+}
+
+@media ( max-width : 500px) {
+	.alignLeft {
+		max-width: 100px;
+		border-right: 1px solid #FF9800;
+	}
+	#rightSide h1 {
+		letter-spacing: 2px;
+		font-size: 20px;
+		margin: 7px 0px 0px 0px;
+	}
+}
+
+@media ( max-width : 410px) {
+	#leftSide {
+		float: right;
+		width: 100%;
+		position: relative;
+		top: 370px;
+	}
+	#rightSide {
+		float: left;
+		width: 100%;
+		position: relative;
+		top: -380px;
+	}
+	#leftSide img {
+		width: 100%;
+	}
+	#content {
+		height: 800px;
+	}
+	#container {
+		margin: 40px auto 0 auto;
+	}
+	#footer p {
+		color: #FF9800;
+		font-weight: normal;
+		font-size: 15px;
+		position: fixed;
+		top: 2px;
+	}
+	.buttonContainer {
+		position: relative;
+		width: 100%;
+	}
+	.adminButtons {
+		position: relative;
+		top: -360px;
+		z-index: 10;
+	}
+	.adminFunction {
+		position: relative;
+		top: 380px;
+	}
+	.alignRight {
+		float: right;
+		width: 35%;
+		position:relative;
+		top: -50px;
+	}
+	.alignLeft {
+		float: left;
+		width: 55%;
+		border-right: 0px;
+		position:relative;
+		top: -50px;
+	}
+	.word {
+		position:relative;
+		top: -50px;
+	}
+}
+
+@media ( max-width : 350px) {
+	#leftSide {
+		float: right;
+		width: 100%;
+		position: relative;
+		top: 370px;
+	}
+	#rightSide {
+		float: left;
+		width: 100%;
+		position: relative;
+		top: -280px;
+	}
+	#content {
+		height: 700px;
+	}
+	#rightSide h3 {
+		font-size: 18px;
+	}
+}

@@ -9,10 +9,7 @@
 <%@page import="java.util.Iterator"%>
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Varela+Round" rel="stylesheet"> 
-		<link rel="stylesheet" href="css/style.css">
-		<title>Insert title here</title>
+		<%@ include file="headContent.jsp"%>
 	</head>
 	<body class="lightGrey">
 

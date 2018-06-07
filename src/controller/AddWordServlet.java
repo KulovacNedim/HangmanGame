@@ -39,21 +39,27 @@ public class AddWordServlet extends HttpServlet {
 		String word = request.getParameter("word");
 		int categoryID = Integer.valueOf(request.getParameter("categoryID"));
 
-		try {
+		if (word.length() >= 5) {
+			try {
 
-			WordDAOImplementation wordDAO = new WordDAOImplementation();
+				WordDAOImplementation wordDAO = new WordDAOImplementation();
 
-			wordDAO.addWord(word, categoryID);
+				wordDAO.addWord(word, categoryID);
 
-			String wordRegSuccess = "New word registered.";
-			request.setAttribute("wordRegSuccess", wordRegSuccess);
+				String wordRegSuccess = "New word registered.";
+				request.setAttribute("wordRegSuccess", wordRegSuccess);
 
-			RequestDispatcher success = request.getRequestDispatcher("jsp/addWord.jsp");
-			success.forward(request, response);
-
-		} catch (SQLException e) {
-			e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} else {
+			String wordLenghtErr = "Word is not added to database. It has to be at least 5 characters long.";
+			request.setAttribute("wordLenghtErr", wordLenghtErr);
 		}
+
+		RequestDispatcher success = request.getRequestDispatcher("jsp/addWord.jsp");
+		success.forward(request, response);
+
 	}
 
 }

@@ -17,6 +17,10 @@
 <% if (request.getAttribute("categRegSuccess") != null) { %>
 <p><%=request.getAttribute("categRegSuccess")%></p><br />
 <% } %>
+
+<% if (request.getAttribute("categRegFail") != null) { %>
+<p><%=request.getAttribute("categRegFail")%></p><br />
+<% } %>
 	
 <% if (request.getAttribute("registerSuccess") != null) { %>
 <p><%=request.getAttribute("registerSuccess")%></p><br />
@@ -36,4 +40,8 @@
 	
 <% if (request.getAttribute("loginErrorMessage") != null) { %>
 <p><%=request.getAttribute("loginErrorMessage")%></p><br />
+<% } %>
+
+<% if (request.getAttribute("wordLenghtErr") != null) { %>
+<p><%=request.getAttribute("wordLenghtErr")%></p><br />
 <% } %>

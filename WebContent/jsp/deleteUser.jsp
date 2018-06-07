@@ -6,10 +6,7 @@
 <%@page import="java.util.Iterator"%>
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Varela+Round" rel="stylesheet">
-		<link rel="stylesheet" href="css/style.css">
-		<title>Insert title here</title>
+		<%@ include file="headContent.jsp"%>
 	</head>
 	
 	<body class="lightGrey">
@@ -35,31 +32,32 @@
 				
 				<!-- RIGHT SIDE -->
 				<section id="rightSide">
-				
-					<h3>DELETE USER SECTION</h3>
-					<br /><br /><br />
-
-					<form action="search" method="post" class="form">
-						<input type="search" placeholder="Search for user..." name="search"
-						value="<%=session.getAttribute("searchString") == null ? "" : session.getAttribute("searchString")%>">
-						<input class="button" type="submit" value="Search">
-					</form>
-
-					<form action="deleteUser" method="post" class="form">
-						<select name="userID">
-							<%
-								ArrayList<User> searchResults = (ArrayList) session.getAttribute("searchResult");
-								Iterator<User> iterator = searchResults.iterator();
-								while (iterator.hasNext()) {
-									User user = iterator.next();
-							%>
-							<option value="<%=user.getUserID()%>"><%=user.getUsername()%></option>
-							<%
-								}
-							%>
-						</select> <input class="button" type="submit" value="Delete user">
-					</form>
-			
+					<div class="adminFunction">
+						
+						<h3>DELETE USER SECTION</h3>
+						<br /><br /><br />
+	
+						<form action="search" method="post" class="form">
+							<input type="search" placeholder="Search for user..." name="search"
+							value="<%=session.getAttribute("searchString") == null ? "" : session.getAttribute("searchString")%>">
+							<input class="button" type="submit" value="Search">
+						</form>
+	
+						<form action="deleteUser" method="post" class="form">
+							<select name="userID">
+								<%
+									ArrayList<User> searchResults = (ArrayList) session.getAttribute("searchResult");
+									Iterator<User> iterator = searchResults.iterator();
+									while (iterator.hasNext()) {
+										User user = iterator.next();
+								%>
+								<option value="<%=user.getUserID()%>"><%=user.getUsername()%></option>
+								<%
+									}
+								%>
+							</select> <input class="button" type="submit" value="Delete user">
+						</form>
+					</div>
 					<br class="clear"/>
 				</section>
 				

@@ -28,21 +28,28 @@ public class AddCategoryServlet extends HttpServlet {
 
 		String categoryname = request.getParameter("categoryname");
 
-		try {
+		if (categoryname.length() > 0) {
+			try {
 
-			CategoryDAOImplementation categoryDAO = new CategoryDAOImplementation();
+				CategoryDAOImplementation categoryDAO = new CategoryDAOImplementation();
 
-			categoryDAO.insertCategory(categoryname);
+				categoryDAO.insertCategory(categoryname);
 
-			String categRegSuccess = "New category registered.";
-			request.setAttribute("categRegSuccess", categRegSuccess);
+				String categRegSuccess = "New category registered.";
+				request.setAttribute("categRegSuccess", categRegSuccess);
 
-			RequestDispatcher success = request.getRequestDispatcher("jsp/addCategory.jsp");
-			success.forward(request, response);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} else {
+
+			String categRegFail = "Enter category name first and then clic SAVE.";
+			request.setAttribute("categRegFail", categRegFail);
 		}
+
+		RequestDispatcher success = request.getRequestDispatcher("jsp/addCategory.jsp");
+		success.forward(request, response);
 	}
 
 }
