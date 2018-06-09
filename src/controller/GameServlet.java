@@ -72,50 +72,67 @@ public class GameServlet extends HttpServlet {
 			RequestDispatcher failure = req.getRequestDispatcher("jsp/game.jsp");
 			failure.forward(req, resp);
 
-		} else if (game.getCorrect() == game.getWord().getWord().length() - 1) {
-
-			Game.setGeneralScore(Game.getGeneralScore() + game.getScore());
-			game.setMisses(7);
-
-			try {
-				game.setImagePath(imageDAO.getImagePath(game.getMisses()));
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-
-			req.getSession().setAttribute("game", game);
-
-			RequestDispatcher success = req.getRequestDispatcher("jsp/won.jsp");
-			success.forward(req, resp);
-
-		} else if (game.getMisses() == 5 && !gameLogic.doesLetterExistInWord(game.getWord(), letter)) {
-
-			game.setMisses(6);
-			Game.setGeneralScore(0);
-			try {
-				game.setImagePath(imageDAO.getImagePath(game.getMisses()));
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-
-			req.getSession().setAttribute("game", game);
-
-			RequestDispatcher success = req.getRequestDispatcher("jsp/lostGame.jsp");
-			success.forward(req, resp);
-
-		} else {
+		} 
+		
+		
+		
+		else {
 
 			try {
 				gameLogic.doLogic(game, letter);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+			
+			
+			
+			if (game.getCorrect() == game.getWord().getWord().length()) {
 
-			req.getSession().setAttribute("game", game);
+				Game.setGeneralScore(Game.getGeneralScore() + game.getScore());
+				game.setMisses(7);
 
-			RequestDispatcher success = req.getRequestDispatcher("jsp/game.jsp");
-			success.forward(req, resp);
+				try {
+					game.setImagePath(imageDAO.getImagePath(game.getMisses()));
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+
+				req.getSession().setAttribute("game", game);
+
+				RequestDispatcher success = req.getRequestDispatcher("jsp/won.jsp");
+				success.forward(req, resp);
+
+			} else if (game.getMisses() == 6) {
+
+//				game.setMisses(6);
+				try {
+					game.setImagePath(imageDAO.getImagePath(game.getMisses()));
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+
+				req.getSession().setAttribute("game", game);
+
+				RequestDispatcher success = req.getRequestDispatcher("jsp/lostGame.jsp");
+				success.forward(req, resp);
+
+			} else {
+				req.getSession().setAttribute("game", game);
+
+				RequestDispatcher success = req.getRequestDispatcher("jsp/game.jsp");
+				success.forward(req, resp);
+			}
+			
+			
+			
+			
+
+			
 		}
+		
+		
+		
+//		else 
 	}
 
 }

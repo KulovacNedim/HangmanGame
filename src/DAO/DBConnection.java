@@ -4,35 +4,61 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+//Singleton
 public class DBConnection {
 
-	public static Connection getConnectionToDatabase() {
-		Connection connection = null;
+	private static DBConnection instance = null;
 
+	private static final String USERNAME = "root";
+	private static final String PASSWORD = "nedim";
+	private static final String CONN_STRING = "jdbc:mysql://localhost:3306/hangmen";
+
+	private static Connection connection = null;
+
+	private DBConnection() {
+
+	}
+
+	public static DBConnection getInstance() {
+		if (instance == null) {
+			instance = new DBConnection();
+		}
+		return instance;
+	}
+
+	private static boolean openConnection() {
 		try {
-
-			// load the driver class
 			Class.forName("com.mysql.jdbc.Driver");
-			System.out.println("MySQL JDBC Driver Registered!");
-
-			// get hold of the DriverManager
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/hangmen", "root", "nedim");
+			connection = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+			return true;
+		} catch (SQLException e) {
+			System.err.println(e);
+			return false;
 		} catch (ClassNotFoundException e) {
 			System.out.println("Where is your MySQL JDBC Driver?");
 			e.printStackTrace();
-
+			return false;
 		}
+	}
 
-		catch (SQLException e) {
-			System.out.println("Connection Failed! Check output console");
-			e.printStackTrace();
-
-		}
-
-		if (connection != null) {
-			System.out.println("Connection made to DB!");
+	public static Connection getConnectionToDatabase() {
+		if (connection == null) {
+			if (openConnection()) {
+				System.out.println("Connection opened.");
+				return connection;
+			} else {
+				return null;
+			}
 		}
 		return connection;
 	}
 
+	public void close() {
+		System.out.println("Connection closed.");
+		try {
+			connection.close();
+			connection = null;
+		} catch (Exception e) {
+		}
+	}
 }

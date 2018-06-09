@@ -4,6 +4,8 @@
 <%@page import="model.User"%>
 <%@page import="model.Game"%>
 <%@page import="model.Category"%>
+<%@page import="java.util.List" isErrorPage="false"
+	errorPage="error.jsp"%>
 <html>
 	<head>
 		<%@ include file="headContent.jsp"%>
@@ -26,7 +28,7 @@
 				
 				<!-- LEFT SIDE -->
 				<section id="leftSide">
-					<img src="<%=game.getImagePath()%>">
+					<img src="${game.imagePath}">
 					
 					<br class="clear"/>
 				</section>
@@ -42,7 +44,7 @@
 					<div class="alignLeft">
 						<p>Word category: ${game.category.categoryName}</p>
 						<p class="smallFont">MISSES: ${game.misses}</p>
-<%-- 						<p class="smallFont">CORRECT: ${game.correct}</p> --%>
+						<p class="smallFont">c: ${game.correct}</p>
 						<p class="smallFont">USED LETTERS: ${game.usedLetters}</p>
 					</div>
 					

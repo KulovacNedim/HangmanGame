@@ -33,7 +33,7 @@
 }
 
 #content {
-	height: 400px;
+	height: 420px;
 }
 
 #leftSide {
@@ -351,6 +351,9 @@
 		padding-top: 20px;
 		height: 180px;
 		overflow: auto;
+	}
+	#rightSide h3 {
+		font-size: 18px;
 	}
 }
 

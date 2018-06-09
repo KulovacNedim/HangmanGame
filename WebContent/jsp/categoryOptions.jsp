@@ -5,6 +5,9 @@
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.Game"%>
+<%@page import="java.util.List" isErrorPage="false"
+	errorPage="error.jsp"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 	<head>
 		<%@ include file="headContent.jsp"%>
@@ -28,7 +31,7 @@
 				
 					<!-- LEFT SIDE -->
 					<section id="leftSide">
-						<img src="<%=game.getImagePath()%>">
+						<img src="${game.imagePath}">
 						
 						<br class="clear"/>
 					</section>
@@ -38,20 +41,15 @@
 						
 						<h1>Choose one of categories:</h1>
 
-						<form action="newGame" method=get class="optionList">
+						<form action="gameFlow" method=post class="optionList">
 							
 							<section class="scrollWindow">
-								<%
-									ArrayList<Category> categories = (ArrayList) session.getAttribute("categories");
-									Iterator<Category> iterator = categories.iterator();
-									while (iterator.hasNext()) {
-										Category category = iterator.next();
-								%>
-								<input  type="radio" name="categoryString" id="searchCriteria"
-									value="<%=category.getCategoryName()%>"><%=category.getCategoryName()%><br />
-								<%
-									}
-								%>
+
+								<c:forEach items="${sessionScope.categories}" var="category" varStatus="loop">
+									<input  type="radio" name="categoryString" id="searchCriteria"
+										value="${category.categoryName}">${category.categoryName}<br />
+								</c:forEach>
+								
 								<br class="clear"/>
 							</section>
 							

@@ -5,7 +5,6 @@ import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,12 +18,11 @@ import model.User;
 import model.Word;
 import services.GameLogic;
 
-@WebServlet("/newGame")
 public class NewGameServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		WordDAOImplementation wordDAO = new WordDAOImplementation();
 		WordCategoryDAOImplementation wordCategoryDAO = new WordCategoryDAOImplementation();
@@ -57,7 +55,6 @@ public class NewGameServlet extends HttpServlet {
 
 			try {
 				word = wordDAO.getRandomWord(categoryObj.getCategoryID());
-
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -71,10 +68,8 @@ public class NewGameServlet extends HttpServlet {
 			game.setMisses(0);
 			game.setSolutionPlaceholder(gameLogic.getSolutionPlaceholder(game.getWord()));
 			game.setUsedLetters("");
-
 			try {
 				game.setImagePath(imageDAO.getImagePath(game.getMisses()));
-
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -84,5 +79,11 @@ public class NewGameServlet extends HttpServlet {
 			RequestDispatcher success = req.getRequestDispatcher("jsp/game.jsp");
 			success.forward(req, resp);
 		}
+		
+	}
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doPost(req, resp);
 	}
 }

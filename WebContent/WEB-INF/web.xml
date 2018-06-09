@@ -4,4 +4,31 @@
   <welcome-file-list>
     <welcome-file>jsp/login.jsp</welcome-file>
   </welcome-file-list>
+
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>controller.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>CategoryOptionsServlet</servlet-name>
+		<servlet-class>controller.CategoryOptionsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CategoryOptionsServlet</servlet-name>
+		<url-pattern>/chooseOption</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>NewGameServlet</servlet-name>
+		<servlet-class>controller.NewGameServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NewGameServlet</servlet-name>
+		<url-pattern>/gameFlow</url-pattern>
+	</servlet-mapping>
 </web-app>

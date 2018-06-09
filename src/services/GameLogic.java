@@ -1,14 +1,15 @@
 package services;
 
 import java.sql.SQLException;
-
 import DAO.ImageDAOImplementation;
+import DAO.WordDAOImplementation;
 import model.Game;
 import model.Word;
 
 public class GameLogic {
 
 	ImageDAOImplementation imageDAO = new ImageDAOImplementation();
+	WordDAOImplementation wordDAO = new WordDAOImplementation();
 
 	public void doLogic(Game game, String letter) throws SQLException {
 
@@ -23,9 +24,7 @@ public class GameLogic {
 			game.setSolutionPlaceholder(updatedPlaceholder);
 
 			game.setUsedLetters(game.getUsedLetters() + " " + letter);
-			game.setCorrect(game.getCorrect() + correctLetters(newPlaceholder, game.getWord(), letter));
-
-			System.out.println(game.toString());
+			game.setCorrect(game.getCorrect() + correctLetters(game.getWord(), letter));
 
 		} else {
 
@@ -91,7 +90,7 @@ public class GameLogic {
 
 			} else if (newPlaceholder.charAt(i) == '-') {
 				digestedWord += "-";
-			
+
 			} else {
 				digestedWord += newPlaceholder.charAt(i);
 			}
@@ -111,11 +110,11 @@ public class GameLogic {
 		return false;
 	}
 
-	private int correctLetters(String newPlaceholder, Word word, String letter) {
+	private int correctLetters(Word word, String letter) {
 
 		int counter = 0;
 
-		for (int i = 0; i < newPlaceholder.length(); i++) {
+		for (int i = 0; i < word.getWord().length(); i++) {
 
 			if (word.getWord().charAt(i) == letter.charAt(0)) {
 
@@ -132,27 +131,37 @@ public class GameLogic {
 
 		for (int i = 0; i < word.getWord().length(); i++) {
 			if (word.getWord().charAt(i) == " ".charAt(0)) {
-				
+
 				solutionPlaceholder += " ";
 			} else {
-				
+
 				solutionPlaceholder += "-";
-			}	
+			}
 		}
 
 		return solutionPlaceholder;
 	}
 
 	public int getInitCorrects(Word word) {
-		
+
 		int counter = 0;
-		
+
 		for (int i = 0; i < word.getWord().length(); i++) {
 			if (word.getWord().charAt(i) == " ".charAt(0)) {
 				counter++;
 			}
 		}
 		return counter;
+	}
+
+	public int numberOfDifferentLetters(Word word) {
+
+
+
+		    
+		    return (int)word.getWord().chars()
+		            .distinct()
+		            .count();
 	}
 
 }

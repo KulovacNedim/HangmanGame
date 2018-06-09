@@ -8,4 +8,4 @@
 <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
 <link rel="icon" href="images/favicon/favicon.ico" type="image/x-icon">
 
-<title>Insert title here</title>
+<title>Play Hangman</title>

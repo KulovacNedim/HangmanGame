@@ -2,8 +2,9 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@page import="java.util.ArrayList"%>
-<%@page import="model.Category"%>
-<%@page import="java.util.Iterator"%>
+<%@page import="model.Category" isErrorPage="false"
+	errorPage="error.jsp"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 	<head>
 		<%@ include file="headContent.jsp"%>
@@ -39,17 +40,11 @@
 							<label>Word</label> <input type="text" name="word" id="word" value=""><br />
 							<label>Select category</label>
 							<select name="categoryID">
-							<%
-								ArrayList<Category> categories = (ArrayList) session.getAttribute("categories");
-								Iterator<Category> iterator = categories.iterator();
-								while (iterator.hasNext()) {
-									Category category = iterator.next();
-							%>
-							<option value="<%=category.getCategoryID()%>"><%=category.getCategoryName()%></option>
-							<%
-								}
-							%>
-	
+
+								<c:forEach items="${sessionScope.categories}" var="category" varStatus="loop">
+									<option value="${category.categoryID}">${category.categoryName}</option>
+								</c:forEach>
+								
 							</select> 
 							
 							<input class="button" type="submit" value="Save word">

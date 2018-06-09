@@ -25,7 +25,7 @@ public class AddWordServlet extends HttpServlet {
 		WordCategoryDAOImplementation wordDAO = new WordCategoryDAOImplementation();
 		ArrayList<Category> categories = new ArrayList<>();
 		try {
-			categories = wordDAO.getWordCategories();
+			categories = wordDAO.getAllWordCategories();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

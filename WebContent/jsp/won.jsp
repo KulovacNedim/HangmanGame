@@ -3,7 +3,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@page import="model.User"%>
 <%@page import="model.Game"%>
-<%@page import="model.Category"%>
+<%@page import="model.Category" isErrorPage="false"
+	errorPage="error.jsp"%>
 <html>
 	<head>
 		<%@ include file="headContent.jsp"%>
@@ -27,7 +28,7 @@
 				
 				<!-- LEFT SIDE -->
 				<section id="leftSide">
-					<img src="<%=game.getImagePath()%>">
+					<img src="${game.imagePath}">
 					
 					<br class="clear"/>
 				</section>
@@ -41,7 +42,7 @@
 					<h3>YOUR GENERAL SCORE IS: <%= Game.getGeneralScore() %></h3>
 					
 					<section class="buttonContainer">
-						<a href="newGame"><input class="button1" type="button" value="PLAY NEW GAME"></a>
+						<a href="gameFlow"><input class="button1" type="button" value="PLAY NEW GAME"></a>
 						<a href="welcome"><input class="button1" type="button" value="WELCOME SCREEN"></a>
 						<a href="logout"><input class="button1" type="button" value="LOG OUT"></a>
 					</section>

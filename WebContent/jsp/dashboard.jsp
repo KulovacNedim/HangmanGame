@@ -5,8 +5,9 @@
 <%@page import="model.Game"%>
 <%@page import="model.Category"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="model.Points"%>
-<%@page import="java.util.Iterator"%>
+<%@page import="model.Points" isErrorPage="false"
+	errorPage="error.jsp"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 	<head>
 		<%@ include file="headContent.jsp"%>
@@ -29,7 +30,7 @@
 				
 				<!-- LEFT SIDE -->
 				<section id="leftSide">
-					<img src="<%=game.getImagePath()%>">
+					<img src="${game.imagePath}">
 		
 					<br class="clear"/>
 				</section>
@@ -45,18 +46,15 @@
 							<tr>
 							<td>USER</td><td>SCORE</td>
 							</tr>
-							<%
-								ArrayList<Points> arrPoints = (ArrayList) session.getAttribute("arrPoints");
-								Iterator<Points> iterator = arrPoints.iterator();
-								while (iterator.hasNext()) {
-									Points points = iterator.next();
-							%>
-							<tr>
-							<td><%=points.getName()%></td><td><%=points.getPoints()%></td>
-							</tr>
-							<%
-								}
-							%>
+							
+							<c:forEach items="${sessionScope.arrPoints}" var="arrPoints" varStatus="loop">
+							
+								<tr>
+								<td>${arrPoints.name}</td><td>${arrPoints.points}</td>
+								</tr>
+							
+							</c:forEach>
+							
 						</table>
 					</section>
 				
