@@ -156,9 +156,6 @@ public class GameLogic {
 
 	public int numberOfDifferentLetters(Word word) {
 
-
-
-		    
 		    return (int)word.getWord().chars()
 		            .distinct()
 		            .count();

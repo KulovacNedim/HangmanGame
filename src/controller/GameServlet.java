@@ -63,7 +63,7 @@ public class GameServlet extends HttpServlet {
 
 			RequestDispatcher success = req.getRequestDispatcher("jsp/lostGame.jsp");
 			success.forward(req, resp);
-			
+
 		} else if (gameLogic.isLetterUsed(letter, game)) {
 
 			String letterUsedErrorMessage = "You are alredy asked for letter " + letter.toUpperCase();
@@ -72,10 +72,8 @@ public class GameServlet extends HttpServlet {
 			RequestDispatcher failure = req.getRequestDispatcher("jsp/game.jsp");
 			failure.forward(req, resp);
 
-		} 
-		
-		
-		
+		}
+
 		else {
 
 			try {
@@ -83,9 +81,7 @@ public class GameServlet extends HttpServlet {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-			
-			
-			
+
 			if (game.getCorrect() == game.getWord().getWord().length()) {
 
 				Game.setGeneralScore(Game.getGeneralScore() + game.getScore());
@@ -104,7 +100,6 @@ public class GameServlet extends HttpServlet {
 
 			} else if (game.getMisses() == 6) {
 
-//				game.setMisses(6);
 				try {
 					game.setImagePath(imageDAO.getImagePath(game.getMisses()));
 				} catch (SQLException e) {
@@ -122,17 +117,8 @@ public class GameServlet extends HttpServlet {
 				RequestDispatcher success = req.getRequestDispatcher("jsp/game.jsp");
 				success.forward(req, resp);
 			}
-			
-			
-			
-			
 
-			
 		}
-		
-		
-		
-//		else 
 	}
 
 }
