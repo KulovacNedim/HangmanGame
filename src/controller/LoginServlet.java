@@ -42,7 +42,7 @@ public class LoginServlet extends HttpServlet {
 				Game game = new Game();
 				game.setMisses(6);
 				game.setImagePath(imageDAO.getImagePath(game.getMisses()));
-				game.setGeneralScore(0);
+				Game.setGeneralScore(0);
 
 				session.setAttribute("game", game);
 

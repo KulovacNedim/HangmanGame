@@ -15,6 +15,11 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+drop database if exists hangmen;
+
+create database hangmen;
+
+use hangmen;
 --
 -- Table structure for table `images`
 --
@@ -34,7 +39,7 @@ CREATE TABLE `images` (
 
 LOCK TABLES `images` WRITE;
 /*!40000 ALTER TABLE `images` DISABLE KEYS */;
-INSERT INTO `images` VALUES (1,'images/1.png'),(2,'images/2.png'),(3,'images/3.png'),(4,'images/4.png'),(5,'images/5.png'),(6,'images/6.png'),(7,'images/7.png'),(8,'images/8.png');
+INSERT INTO `images` VALUES (1,'images/1.png'),(2,'images/2.png'),(3,'images/3.png'),(4,'images/4.png'),(5,'images/5.png'),(6,'images/6.png'),(7,'images/7.png'),(8,'images/8.png'),(0,'images/0.png');
 /*!40000 ALTER TABLE `images` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -52,7 +57,7 @@ CREATE TABLE `points` (
   PRIMARY KEY (`RecordID`),
   KEY `UserID` (`UserID`),
   CONSTRAINT `points_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `users` (`UserID`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -61,7 +66,7 @@ CREATE TABLE `points` (
 
 LOCK TABLES `points` WRITE;
 /*!40000 ALTER TABLE `points` DISABLE KEYS */;
-INSERT INTO `points` VALUES (1,2,200),(2,2,100),(3,2,200),(4,2,100),(5,2,0),(6,2,0),(7,2,360),(8,2,80),(9,2,100),(10,2,80),(11,2,0);
+INSERT INTO `points` VALUES (67,2,200),(68,2,100),(69,2,500),(70,2,100),(71,2,100),(72,2,100),(73,2,100),(74,2,100),(75,2,80),(76,2,100),(77,2,170),(78,2,380),(79,2,160),(80,2,500),(81,2,980),(82,2,400);
 /*!40000 ALTER TABLE `points` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -78,7 +83,7 @@ CREATE TABLE `users` (
   `Password` varchar(70) DEFAULT NULL,
   `Admin` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`UserID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -87,7 +92,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'nedim','nedim123',0),(2,'amela','794878b52cdf68293ccfe2c3ba8e5d758eb4cbf8a32ef9ce7c72ea7e',1);
+INSERT INTO `users` VALUES (2,'nedim','794878b52cdf68293ccfe2c3ba8e5d758eb4cbf8a32ef9ce7c72ea7e',1),(3,'Some Dude','7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1',0),(5,'nindja','7e6a4309ddf6e8866679f61ace4f621b0e3455ebac2e831a60f13cd1',0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -102,7 +107,7 @@ CREATE TABLE `wordcategory` (
   `CategoryID` int(11) NOT NULL AUTO_INCREMENT,
   `Word` varchar(20) NOT NULL,
   PRIMARY KEY (`CategoryID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -111,7 +116,7 @@ CREATE TABLE `wordcategory` (
 
 LOCK TABLES `wordcategory` WRITE;
 /*!40000 ALTER TABLE `wordcategory` DISABLE KEYS */;
-INSERT INTO `wordcategory` VALUES (1,'STATES'),(2,'COUNTRIES'),(3,'ANIMALS'),(4,'CARS'),(5,'BRANDS');
+INSERT INTO `wordcategory` VALUES (1,'CITIES'),(2,'COUNTRIES'),(3,'ANIMALS'),(4,'CARS'),(5,'BRANDS'),(6,'COLORS'),(7,'OLYMPIC SPORTS'),(8,'FRUITS'),(10,'HOME DEVICES');
 /*!40000 ALTER TABLE `wordcategory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -129,7 +134,7 @@ CREATE TABLE `words` (
   PRIMARY KEY (`RecordID`),
   KEY `CategoryID` (`CategoryID`),
   CONSTRAINT `words_ibfk_1` FOREIGN KEY (`CategoryID`) REFERENCES `wordcategory` (`CategoryID`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -138,7 +143,7 @@ CREATE TABLE `words` (
 
 LOCK TABLES `words` WRITE;
 /*!40000 ALTER TABLE `words` DISABLE KEYS */;
-INSERT INTO `words` VALUES (4,'PARIS',1),(5,'FRANKFURT',1),(6,'PASSAT',4),(7,'DENMARK',2),(8,'CANADA',2),(9,'SNAKE',3),(10,'MONKEY',3),(11,'GOLF IV',4),(12,'BRUNO BANANI',5),(13,'TELEFUNKEN',5);
+INSERT INTO `words` VALUES (4,'PARIS',1),(5,'FRANKFURT',1),(6,'PASSAT',4),(7,'DENMARK',2),(8,'CANADA',2),(9,'SNAKE',3),(10,'MONKEY',3),(11,'GOLF IV',4),(12,'BRUNO BANANI',5),(13,'TELEFUNKEN',5),(14,'NEW YORK',1),(15,'INDIGO',6),(16,'YELLOW',6),(17,'BANANA',8),(18,'ORANGE',8),(19,'SWIMMING',7),(20,'ATHLETICS',7),(21,'GREEN',6),(22,'ROTERDAM',1),(23,'MALESIA',2),(24,'BERLIN',1),(25,'FRIDGE',10);
 /*!40000 ALTER TABLE `words` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -151,4 +156,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-01 17:56:44
+-- Dump completed on 2018-06-10 15:37:48
